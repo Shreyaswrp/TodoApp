@@ -1,37 +1,26 @@
 import React from "react";
-import "./Todo.css";
+import "../../Styles/Todo.css";
 
 export default function Itemslist(props) {
   const list = props.list;
   const listElements = list.map((item) => {
     return (
-      <div key={item.key} className="displayItems">
+      <div key={item.key} className="display-task-container">
         <input type="checkbox"></input>
         <input
-          className="listItems"
+          className="list-tasks"
           id={item.key}
           value={item.text}
           onChange={(e) => props.editItem(e.target.value, item.key)}
         ></input>
 
         <i
-          style={{
-            color: "blue",
-            fontSize: "20px",
-            marginTop: "5px",
-          }}
-          class="far fa-trash-alt"
+          class="far fa-trash-alt  delete-icon"
           onClick={() => props.deleteItem(item.key)}
         ></i>
 
         <i
-          className="fas fa-pen"
-          style={{
-            color: "blue",
-            fontSize: "20px",
-            marginLeft: "20px",
-            marginTop: "5px",
-          }}
+          className="fas fa-pen  edit-icon"
           type="button"
           onClick={() => props.changeValue()}
         ></i>
@@ -41,7 +30,7 @@ export default function Itemslist(props) {
   return (
     <div>
       {props.list.length === 0 ? (
-        <div className="displayItems">Task List is Empty</div>
+        <div className="emptytask-message ">Task List is Empty</div>
       ) : (
         <div>{listElements}</div>
       )}

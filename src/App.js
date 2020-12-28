@@ -1,6 +1,6 @@
-import Login from "./Pages/Loginpage/Login";
+import Login from "./Components/Loginpage/Login";
 import { Route } from "react-router-dom";
-import Todo from "./Components/Todo";
+import Todo from "./Components/todoapp/Todo";
 
 function App() {
   return (

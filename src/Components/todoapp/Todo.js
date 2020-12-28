@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import Itemslist from "./Itemslist";
-import "./Todo.css";
+import "../../Styles/Todo.css";
 
 class Todo extends Component {
   constructor(props) {
@@ -84,7 +84,7 @@ class Todo extends Component {
       console.log("nothing");
     }
   };
-  changeValue = () => {
+  changeValueHanlder = () => {
     this.setState({ edititems: !this.state.edititems });
   };
 
@@ -103,22 +103,22 @@ class Todo extends Component {
           <h2 className="heading">ToDo List</h2>
 
           <input
-            className="inputField"
+            className="task-inputField"
             placeholder="enter your task"
             name="task"
             value={this.state.currentElement.text}
             onChange={this.inputHandler}
             onClick={this.removeMsgHandler}
           ></input>
-          <button className="addtaskBtn" type="submit">
+          <button className="addtask-Button" type="submit">
             +
           </button>
-          <div className="errMsg">{this.state.errmsg}</div>
+          <div className="error-Msg">{this.state.errmsg}</div>
           <Itemslist
             list={this.state.list}
             deleteItem={this.deleteItem}
             editItem={this.editItem}
-            changeValue={this.changeValue}
+            changeValue={this.changeValueHanlder}
           ></Itemslist>
         </form>
         <button class="logout-button" onClick={this.logoutHandler}>

@@ -4,7 +4,6 @@
 
 .todoForm {
   flex-direction: column;
-
   width: 30%;
   min-height: 500px;
   margin: 5% auto;
@@ -19,22 +18,24 @@
   font-size: 40px;
   flex-direction: column;
 }
-.inputField {
-  margin-left: 100px;
+
+.task-inputField {
+  margin-left: 60px;
   border: 0;
   border-bottom: 2px solid rgb(35, 43, 47);
   outline: 0;
 }
-.inputField:hover {
+
+.task-inputField:hover {
   border-bottom: 2px solid rgb(230, 55, 200);
 }
 
-.displayItems {
+.display-task-container {
   margin-top: 5%;
   margin-left: 100px;
 }
 
-.addtaskBtn {
+.addtask-Button {
   background-color: #8566aa;
   border-radius: 50%;
   font-size: 30px;
@@ -48,22 +49,22 @@
   margin-left: 10px;
 }
 
-.addtaskBtn:hover {
+.addtask-Button:hover {
   font-weight: bold;
   background-color: rgb(170, 93, 243);
 }
 
-.listItems {
+.list-tasks {
   border: 0;
   width: 40%;
 }
 
-.errMsg {
+.error-Msg {
   color: red;
   margin-top: 5px;
   margin-left: 100px;
 }
-input[type="checkbox"]:checked + .listItems {
+input[type="checkbox"]:checked + .list-tasks {
   text-decoration: line-through;
 }
 
@@ -73,7 +74,6 @@ input[type="checkbox"]:checked + .listItems {
   color: white;
   top: 570px;
   left: 610px;
-
   cursor: pointer;
   height: 35px;
   border: none;
@@ -84,4 +84,26 @@ input[type="checkbox"]:checked + .listItems {
 .logout-button:hover {
   text-transform: uppercase;
   background-color: rgb(20, 20, 221);
+}
+
+.delete-icon,
+.edit-icon {
+  font-size: 20px;
+  color: blue;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+.edit-icon:hover {
+  color: black;
+}
+.delete-icon:hover {
+  color: red;
+}
+
+.emptytask-message {
+  position: absolute;
+  bottom: 280px;
+  right: 590px;
+  font-size: 20px;
+  color: blue;
 }

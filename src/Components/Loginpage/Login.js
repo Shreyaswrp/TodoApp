@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./Login.css";
-import accountSvg from "./account.svg";
+import "../../Styles/Login.css";
+import accountSvg from "../../Assets/account.svg";
 import axios from "axios";
 
 export class Login extends Component {
@@ -52,13 +52,14 @@ export class Login extends Component {
       usernameErrMsg: "",
     });
   };
+
   psswderrMsgHandler = () => {
     this.setState({
       passwordErrMsg: "",
     });
   };
 
-  changeType = () => {
+  changePasswordType = () => {
     this.setState({
       passwordtype: !this.state.passwordtype,
     });
@@ -88,7 +89,7 @@ export class Login extends Component {
 
   render() {
     return (
-      <div className="main-container">
+      <div className="main-login-container">
         <form
           className="userLogin-Form"
           autoComplete="off"
@@ -106,7 +107,7 @@ export class Login extends Component {
             ></input>
             <label className="username-text">Username or Email</label>
           </div>
-          <span className="errorMsg">{this.state.usernameErrMsg}</span>
+          <span className="error-Message">{this.state.usernameErrMsg}</span>
 
           <div className="password-Wrapper">
             <input
@@ -123,11 +124,11 @@ export class Login extends Component {
               class={
                 this.state.passwordtype ? "fas fa-eye-slash" : "far fa-eye"
               }
-              onClick={this.changeType}
+              onClick={this.changePasswordType}
             ></i>
           </div>
 
-          <span className="errorMsg">{this.state.passwordErrMsg}</span>
+          <span className="error-Message">{this.state.passwordErrMsg}</span>
           <button className="submit-Button" type="submit">
             LogIn
           </button>
