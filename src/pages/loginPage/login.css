@@ -14,9 +14,9 @@
 
 .login-form-heading {
     margin-left: 40px;
-    margin-top: 80px;
-    font-size: 24px;
-    font-weight: 550;
+    margin-top: 60px;
+    font-size: 22px;
+    font-weight: 300;
     font-family: Georgia, 'Times New Roman', Times, serif, Geneva, Tahoma, sans-serif;
 }
 
@@ -135,10 +135,11 @@
     color: red;
 }
 
-.fa-eye,
-.fa-eye-slash {
+.password-visibility-icon
+{
     position: absolute;
-    top: 10px;
-    left: 235px;
+    top: 5px;
+    left: 155px;
     color: blue;
+    font-size: 12px;
 }

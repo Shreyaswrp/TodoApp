@@ -6,7 +6,7 @@ function LoginPage(props) {
         <div>
             <div className='login-container'>
                 <div className="login-form-heading">
-                    <div>Login to your account</div>
+                    <h4>Login to your account</h4>
                 </div>
                 <div className='form-container'>
                     <form
@@ -19,7 +19,7 @@ function LoginPage(props) {
                                     type='text'
                                     name='userName'
                                     placeholder=' '
-                                    value={props.stateData.user.userName}
+                                    value={props.stateData.userName}
                                     className='login-input'
                                     onChange={event => props.handleInputChange(event)}
                                     onInput={props.handleUserErrorMessage}/>
@@ -33,14 +33,14 @@ function LoginPage(props) {
                                 type={props.stateData.passwordVisibility?'password':'text'}
                                 name='password'
                                 placeholder=' '
-                                value={props.stateData.user.password}
+                                value={props.stateData.password}
                                 onChange={event => props.handleInputChange(event)}
                                 onInput={props.handlePasswordErrorMessage}/>
                             <label className='password-label'>Password</label>
                             <i
                                 className={props.stateData.passwordVisibility
-                                ? "fas fa-eye-slash"
-                                : "far fa-eye"}
+                                ? "fas fa-eye-slash password-visibility-icon"
+                                : "far fa-eye password-visibility-icon"}
                                 onClick={props.changePasswordVisibilityType}></i>
                         </div>
                         <span className='password-error-message'>{props.stateData.passwordErrorMessage}</span>

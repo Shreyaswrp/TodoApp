@@ -8,40 +8,35 @@ class Login extends React.Component {
     {
         super()
         this.state = {
-            user: {
-                userName: '',
-                password: ''
-            },
+            userName: '',
+            password: '',
             userNameErrorMessage: '',
             passwordErrorMessage: '',
-            passwordVisibility:true
+            passwordVisibility: true
         }
     }
 
     handleLoginFormSubmit = (event) => {
         event.preventDefault()
         const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (this.state.user.userName === '' && this.state.user.password === '') {
+        if (this.state.userName === '' && this.state.password === '') {
             this.setState({userNameErrorMessage: 'User name cannot be empty!', passwordErrorMessage: 'Password cannot be empty!'})
-        } else if (!emailValidation.test(this.state.user.userName)) {
+        } else if (!emailValidation.test(this.state.userName)) {
             this.setState({userNameErrorMessage: 'Enter a valid email id!'})
-            this.setState({
-                user: {
-                    userName: '',
-                    password: ''
-                }
-            })
-        } else {
+        } 
+        else if (this.state.password.length<5) {
+            this.setState({passwordErrorMessage: 'Enter a valid password!'})
+        }
+        else {
+            this.handleLogin()
             this.setState({userNameErrorMessage: '', passwordErrorMessage: ''})
-            
+
         }
     }
 
     handleInputChange = (event) => {
         this.setState({
-            user: {
                 [event.target.name]: event.target.value
-            }
         })
     }
 
@@ -53,21 +48,31 @@ class Login extends React.Component {
         this.setState({passwordErrorMessage: ''})
     }
 
-    changePasswordVisibilityType=()=>
-    {
-        this.setState(preState=>
-            {
-                return{
-                    passwordVisibility:!preState.passwordVisibility
-                }
-            })
+    changePasswordVisibilityType = () => {
+        this.setState(preState => {
+            return {
+                passwordVisibility: !preState.passwordVisibility
+            }
+        })
     }
 
-    handleLogin = () => {
-        axios
-            .post('http://api.ganies.com/login', this.state.user)
-            .then(res => console.log(res.data))
-            .catch(error => console.log(error))
+    handleLogin = async () => {
+       const user={
+            user_email:this.state.userName,
+            password:this.state.password
+        }
+        try {
+            const resp = await axios.post('http://api.ganies.com/login', user);
+            // console.log(resp);
+            if (resp.status && resp.status === 200) {
+              localStorage.setItem('auth', resp.data.auth_token);
+
+            } else {
+              console.log(resp.statusText);
+            }
+          } catch (err) {
+            console.log(err);
+          }
     }
 
     render() {
