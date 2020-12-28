@@ -103,8 +103,8 @@ class ToDo extends React.Component {
       <span className='heading'> ToDo List</span>
       <br/>
         <form onSubmit={this.addItems.bind(this)}>
-          <input className='Todo-input' type="text" placeholder="Enter task" value= {this.state.currentItem.text} onChange={this.handleInput.bind(this)}></input>
-          <button className='Todo-button' type="submit">+</button>
+          <input className='input' type="text" placeholder="Enter task" value= {this.state.currentItem.text} onChange={this.handleInput.bind(this)}></input>
+          <button className='button' type="submit">+</button>
           <div className="error-message">{this.state.errmsg}</div>
 <ListItems items={this.state.items} deleteItems={this.deleteItems.bind(this)} setUpdate={this.setUpdate.bind(this)} edit={this.handleEdit}/>
          </form>

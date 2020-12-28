@@ -79,3 +79,29 @@
     margin-top: 95px;
   }
  
+.username-div{
+    position: relative;
+}
+
+.form-input:focus + .username-text,
+.form-input:not(:placeholder-shown) + .username-text {
+  transform: translateY(-100%);
+  background: white;
+  font-size: 12px;
+}
+
+.form-input:focus + .password-text,
+.form-input:not(:placeholder-shown) + .username-text {
+  transform: translateY(-100%);
+  background: white;
+  font-size: 12px;
+}
+
+
+.username-text,.password-text {
+    position: absolute;
+    top: 8px;
+    left: 2%;
+    pointer-events: none;
+    transition: 0.4s;
+}

@@ -24,7 +24,7 @@
     margin-bottom: 10px;
   }
   
-  .Todo-button{
+  .input{
     text-align: center;
     height: 30px;
     top:10px;
@@ -37,7 +37,8 @@
     border-bottom: 2px solid #8566aa;
   }
   
-  .Todo-button {
+  
+  .button {
     min-height: 40px;
     width: 40px;
     border-radius: 50%;
