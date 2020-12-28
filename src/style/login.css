@@ -1,0 +1,136 @@
+:root {
+  --first-color: #1a73e8;
+  --input-color: #80868b;
+  --border-color: #dadce0;
+
+  --body-font: "Roboto", sans-serif;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.75rem;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  margin-top: 50px;
+  width: 55%;
+  height: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.LoginCard {
+  width: 60%;
+  float: left;
+}
+
+.imgCard {
+  margin-top: 100px;
+  width: 40%;
+  float: left;
+}
+.img{
+  width: 60%;
+  height: 60%;
+}
+.formTitle{
+  text-align: center;
+}
+
+.LoginForm {
+  position: relative;
+  height: 40px;
+  padding-top: 60px;
+}
+
+.formInput{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  margin-left: 50px;
+  font-size: var(--normal-font-size);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  outline: none;
+  padding: 1rem;
+  background: none;
+  z-index: 1;
+}
+
+.formLabel {
+  position: absolute;
+  margin-left: 50px;
+  left: 1rem;
+  top: 1rem;
+  padding: 0 0.25rem;
+  background-color: #fff;
+  color: var(--input-color);
+  font-size: var(--normal-font-size);
+  transition: 0.3s;
+}
+
+.formButton {
+  display: block;
+  margin-left: 73%;
+  padding: 0.75rem 1rem;
+  outline: none;
+  border: none;
+  background-color: var(--first-color);
+  color: #fff;
+  font-size: var(--normal-font-size);
+  border-radius: 0.5rem;
+}
+
+.formButton:hover {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.15);
+}
+
+.formInput:focus + .formLabel {
+  top: -0.5rem;
+  left: 0.8rem;
+  color: var(--first-color);
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  z-index: 10;
+}
+
+.formInput:not(:placeholder-shown).formInput:not(:focus) + .formLabel {
+  top: -0.5rem;
+  left: 0.8rem;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  z-index: 10;
+}
+
+.formInput:focus {
+  border: 1.5px solid var(--first-color);
+}
+
+.ErrorMsg {
+  margin-left: 50px;
+  color: red;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+  
+.SignUpBtn{
+  font-size: 14px;
+  margin-left: 40px;
+  float: left;
+  padding-top: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  .body {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
