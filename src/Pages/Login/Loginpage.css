@@ -1,0 +1,81 @@
+.main-div {
+    margin-top: 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    min-height: 250px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    border: 1px solid #b2bec3;
+  }
+
+  .center-div {
+    margin-top: 60px;
+    height: 307px;
+    width: 434px;
+  }
+
+  .form-heading {
+    font-family: sans-serif;
+    text-align: left;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3333;
+    color: #202124;
+  }
+  
+  .form-input{
+    height: 20px;
+    padding: 6px 8px;
+    text-align: left;
+    width: 350px;
+    border: 1px solid #b2bec3;
+    border-radius: 5px;
+    display: block;
+    line-height: 24px;
+    margin: 40px 0 0 0;
+    font-size: 14px;
+  }
+  
+  .errorMsg {
+    color: crimson;
+  }
+  
+  .submitbutton {
+    width: 75px;
+    height: 35px;
+    margin-top: 45px;
+    margin-left: 290px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    font-size: 14px;
+    background-color: #1a73e8;
+  }
+  
+  .create-new-account-link {
+    font-size: 16px;
+    line-height: 20px;
+    color: #1a73e8;
+    cursor: pointer;
+    position: absolute;
+    top:360px;
+  }
+
+  .Google-logo {
+    height: 512px;
+    width: 220px;
+  }
+  
+  .account-image {
+    height: 244px;
+    width: 244px;
+    margin-top: 95px;
+  }
+ 
