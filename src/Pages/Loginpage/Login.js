@@ -60,7 +60,7 @@ export class Login extends Component {
 
   loginHandler = () => {
     const user = {
-      username: this.state.username,
+      user_email: this.state.username,
       password: this.state.password,
     };
     axios
