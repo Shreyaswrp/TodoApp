@@ -18,7 +18,7 @@ const item = props => {
                 <FontAwesomeIcon className='btn edit' onClick={props.isUpdating ? props.saveUpdate : props.updateItem}
                     icon={props.isUpdating ? faCheck : faEdit} />
                 <FontAwesomeIcon className='btn delete' onClick={props.deleteItem} icon={faTrashAlt} />
-                <span id='errUpdateMsg'></span>
+                <span id='errUpdateMsg'>{props.errUpdateMsg}</span>
             </div>
         </div>
     )

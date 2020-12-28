@@ -11,10 +11,12 @@ class TodoList extends Component {
             id: new Date(),
             title: 'Cooking',
             isUpdating: false,
-            isChecked: false
+            isChecked: false,
+            errUpdateItemMsg: undefined
         }],
         currentItem: undefined,
-        updatedItemIndex: undefined
+        updatedItemIndex: undefined,
+        errAddItemMsg: undefined
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -26,32 +28,28 @@ class TodoList extends Component {
 
     setCurrentItemHandler = (e) => {
         this.setState({
-            currentItem: e.target.value
+            currentItem: e.target.value,
+            errAddItemMsg: ''
         })
-        const errMsg = document.querySelector('#errAddMsg');
-        errMsg.innerHTML = '';
     }
 
     logoutHandler = () => {
         this.props.history.push('/');
         localStorage.clear();
-
     }
 
     addItemHandler = (e) => {
-        //this.setState({ isUpdating: false })
-        const errMsg = document.querySelector('#errAddMsg');
-        const inputField = document.querySelector('.inputField');
-        errMsg.innerHTML = '';
         e.preventDefault();
+        const inputField = document.querySelector('.inputField');
+        this.setState({ errAddItemMsg: '' });
         const currentItem = this.state.currentItem;
         if (currentItem === undefined || currentItem.toString().trim() === '') {
-            return errMsg.innerHTML = 'Empty Field Not Allowed'
+            return this.setState({ errAddItemMsg: 'Empty Field Not Allowed' })
         }
         const updatedItems = [{ id: new Date(), title: currentItem }, ...this.state.items];
-        //updatedItems.unshift({ id: new Date(), title: currentItem });
         this.setState({ items: updatedItems });
         this.setState({ currentItem: '' });
+        this.setState({ errAddItemMsg: '' });
         inputField.value = '';
     }
 
@@ -70,7 +68,6 @@ class TodoList extends Component {
                 }
             ]
         });
-
     }
 
     deleteItemHandler = (index) => {
@@ -82,28 +79,24 @@ class TodoList extends Component {
 
     updateItemHandler = (index) => {
         console.log(index);
-        const errMsg = document.querySelector('#errUpdateMsg');
-        errMsg.innerHTML = '';
-        //this.setState({ isUpdating: true });
         const updatingItems = [...this.state.items]
+        updatingItems[index].errUpdateItemMsg = '';
         updatingItems[index].isUpdating = true
         this.setState({ currentItem: updatingItems[index].title });
-        this.setState({ items: updatingItems });
         this.setState({ updatedItemIndex: index });
     };
 
     saveUpdateHandler = () => {
-        const errMsg = document.querySelector('#errUpdateMsg');
-        errMsg.innerHTML = '';
         const updatedItems = [...this.state.items];
         const index = this.state.updatedItemIndex;
         if (this.state.currentItem.toString().trim() === '') {
-            return errMsg.innerHTML = 'Empty Field Not Allowed'
+            updatedItems[index].errUpdateItemMsg = 'Empty fields not allowed'
+            return this.setState({ items: updatedItems })
         }
         updatedItems[index].title = this.state.currentItem;
-        updatedItems[index].isUpdating = false
+        updatedItems[index].isUpdating = false;
+        updatedItems[index].errUpdateItemMsg = '';
         this.setState({ items: updatedItems });
-        //this.setState({ isUpdating: false });
         this.setState({ currentItem: '' });
     }
 
@@ -116,24 +109,23 @@ class TodoList extends Component {
     render() {
         return (
             <div className='appContainer'>
-                <button onClick={this.logoutHandler}>Logout</button>
+                <button className='logoutBtn' onClick={this.logoutHandler}>Logout</button>
                 <h1 className='appTitle'>ToDo Application</h1>
                 <input onChange={(e) => { this.setCurrentItemHandler(e) }}
                     className='inputField' type='text' placeholder='Add your task' />
                 <button onClick={this.addItemHandler} className='btn add'>+</button>
-                <span id='errAddMsg'></span>
+                <span id='errAddMsg'>{this.state.errAddItemMsg}</span>
                 {this.state.items.length === 0 ? <span id='noTaskAdded'>No Task Added</span> :
                     <Items storedItems={this.state.items} deleteItemHandler={this.deleteConfirmation}
                         updateItemHandler={this.updateItemHandler}
                         saveUpdateHandler={this.saveUpdateHandler}
                         itemCheckedHandler={this.itemCheckedHandler}
-                        setCurrentItemHandler={(e) => { this.setCurrentItemHandler(e) }} currentItem={this.state.currentItem} />
+                        setCurrentItemHandler={(e) => { this.setCurrentItemHandler(e) }}
+                        currentItem={this.state.currentItem} />
                 }
             </div>
         )
     }
-
-
 };
 
 export default TodoList;

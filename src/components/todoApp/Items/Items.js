@@ -11,6 +11,7 @@ const items = props => {
                 isUpdating={item.isUpdating}
                 currentItem={props.currentItem}
                 isChecked={item.isChecked}
+                errUpdateMsg={item.errUpdateItemMsg}
                 itemCheckedHandler={() => props.itemCheckedHandler(index)}
                 setCurrentItemHandler={props.setCurrentItemHandler} />)}
         </div>
