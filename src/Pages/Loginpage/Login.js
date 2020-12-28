@@ -58,27 +58,29 @@ export class Login extends Component {
     });
   };
 
-  loginHandler = () => {
-    const user = {
-      user_email: this.state.username,
-      password: this.state.password,
-    };
-    axios
-      .post("http://api.ganies.com/login", user)
-      .then((res) => {
-        console.log(res.data);
-        alert("your loged in");
-      })
-      .catch((err) => {
-        console.log(err.response.statusText);
-        alert("cannot login");
-      });
-  };
-
   changeType = () => {
     this.setState({
       passwordtype: !this.state.passwordtype,
     });
+  };
+
+  loginHandler = async () => {
+    const user = {
+      user_email: this.state.username,
+      password: this.state.password,
+    };
+
+    const resp = axios
+      .post("http://api.ganies.com/login", user)
+      .then((res) => {
+        console.log(res.data);
+        if (res.status === 200) {
+          return this.props.history.push("/Todo");
+        }
+      })
+      .catch((err) => {
+        console.log(err.response.statusText);
+      });
   };
 
   render() {
@@ -124,7 +126,7 @@ export class Login extends Component {
 
           <span className="errorMsg">{this.state.passwordErrMsg}</span>
           <button className="submit-Button" type="submit">
-            submit
+            LogIn
           </button>
           <a className="newAccount-Link"> Create a account</a>
         </form>
