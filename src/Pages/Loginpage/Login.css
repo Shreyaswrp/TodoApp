@@ -1,0 +1,132 @@
+.main-container {
+  margin-top: 65px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  width: 600px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 48px 40px 36px;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+  box-shadow: 15px 10px 40px #dadce0;
+}
+.userLogin-Form {
+  margin-top: 80px;
+  height: 307px;
+  width: 434px;
+  flex-direction: column;
+}
+.username-Wrapper,
+.password-Wrapper {
+  position: relative;
+}
+
+.inputField-Username,
+.inputField-Password {
+  font-size: 14px;
+  height: 20px;
+  padding: 7px 9px;
+  direction: ltr;
+  width: 250px;
+  text-align: left;
+  border: 2px solid #dadce0;
+  border-radius: 4px;
+  color: #202124;
+  display: block;
+  line-height: 24px;
+  margin: 40px 0 0 0;
+}
+.username-text,
+.password-text {
+  position: absolute;
+  top: 8px;
+  left: 2%;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+.inputField-Username:focus + .username-text,
+.inputField-Username:not(:placeholder-shown) + .username-text {
+  transform: translateY(-100%);
+  background: white;
+  font-size: 12px;
+}
+
+.inputField-Password:focus + .password-text,
+.inputField-Password:not(:placeholder-shown) + .password-text {
+  transform: translateY(-100%);
+  background: white;
+  font-size: 12px;
+}
+
+.errorMsg {
+  color: crimson;
+}
+
+.submit-Button {
+  display: block;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  width: 79px;
+  height: 35px;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 0.15px;
+  line-height: 20px;
+  text-decoration: none solid rgb(255, 255, 255);
+  font-size: 14px;
+  background-color: #1a73e8;
+  margin-top: 45px;
+  margin-left: 190px;
+}
+
+.submit-Button:hover {
+  text-transform: uppercase;
+  background-color: rgb(20, 20, 221);
+}
+
+.newAccount-Link {
+  position: absolute;
+  top: 350px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1a73e8;
+  margin-top: 80px;
+  cursor: pointer;
+}
+
+.rightImage-Container {
+  height: 512px;
+  width: 300px;
+}
+
+.account-Image {
+  height: 244px;
+  width: 244px;
+  margin-top: 45px;
+}
+
+.account-Heading {
+  font-family: sans-serif;
+  display: block;
+  text-align: left;
+  font-size: 24px;
+}
+
+.accountImage-caption {
+  display: block;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.4286;
+}
+
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  top: 13px;
+  right: 100px;
+}

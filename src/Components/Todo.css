@@ -1,0 +1,68 @@
+.todoContainer {
+  display: flex;
+}
+
+.todoForm {
+  flex-direction: column;
+
+  width: 30%;
+  min-height: 500px;
+  margin: 5% auto;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.heading {
+  text-align: center;
+  background-color: rgb(164, 50, 179);
+  color: white;
+  font-size: 40px;
+  flex-direction: column;
+}
+.inputField {
+  margin-left: 100px;
+  border: 0;
+  border-bottom: 2px solid rgb(35, 43, 47);
+  outline: 0;
+}
+.inputField:hover {
+  border-bottom: 2px solid rgb(230, 55, 200);
+}
+
+.displayItems {
+  margin-top: 5%;
+  margin-left: 100px;
+}
+
+.addtaskBtn {
+  background-color: #8566aa;
+  border-radius: 50%;
+  font-size: 30px;
+  align-items: center;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  color: white;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+}
+
+.addtaskBtn:hover {
+  font-weight: bold;
+  background-color: rgb(170, 93, 243);
+}
+
+.listItems {
+  border: 0;
+  width: 40%;
+}
+
+.errMsg {
+  color: red;
+  margin-top: 5px;
+  margin-left: 100px;
+}
+input[type="checkbox"]:checked + .listItems {
+  text-decoration: line-through;
+}
