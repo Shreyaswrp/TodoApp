@@ -1,0 +1,59 @@
+.itemContainer {
+  display: flex;
+  margin: 10px auto;
+  width: 90%;
+  border: 2px solid #8566aa;
+  padding: 0 5px;
+  height: 55px;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  color: #888;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.edit {
+  font-size: 20px;
+  padding: 0;
+  margin-right: 0;
+  color: #0f0;
+}
+
+.delete {
+  font-size: 20px;
+  padding: 0;
+  margin-right: 0;
+  color: #f00;
+}
+
+.actionButtons {
+  margin-left: auto;
+}
+
+.updateInputField {
+  border: none;
+  background-color: #f4f4f4;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #0f0;
+  width: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  outline: none;
+}
+
+#errUpdateMsg {
+  color: #f00;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: left !important;
+  margin-left: 24px;
+}
+
+.title {
+  margin-left: 10px;
+}
+
+del {
+  color: #f00;
+}
