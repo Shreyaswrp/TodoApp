@@ -10,7 +10,7 @@
 
 .loginFormContainer {
   border-radius: 15px;
-  width: 550px;
+  max-width: 650px;
   height: 60vh;
   display: flex;
   background-color: #fff;
@@ -45,11 +45,14 @@
   font-weight: 600;
   outline: none;
   border: none;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .loginFormBtns {
   text-align: right;
+  display: inline-block;
+  margin-top: 10%;
+  margin-right: 0;
 }
 
 .loginFormBtn:hover,
@@ -59,10 +62,10 @@
 }
 
 .formImageController {
-  height: 200px;
-  width: 200px;
+  height: 220px;
+  width: 220px;
   padding-right: 30px;
-  padding-top: 18%;
+  padding-top: 15%;
 }
 
 .formImage {
@@ -74,11 +77,12 @@
   color: blue;
   font-weight: 700;
   cursor: pointer;
+  margin-right: 25px;
 }
 
 .errInputMsg {
   color: red;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .noUserFoundMsg {

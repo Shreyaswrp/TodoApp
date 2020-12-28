@@ -35,6 +35,7 @@ const userLogin = (props) => {
     setMsgUserNotFound('');
     setErrEmailMsg('');
     setErrPasswordMsg('');
+
     const regEx = /^([a-zA-Z0-9_]+)@([a-zA-Z0-9_]+)\.([a-zA-Z]{2,5})$/
     if (!regEx.test(user_email) && password.length < 5) {
       setErrEmailMsg("Please provide a valid Email");
@@ -48,6 +49,7 @@ const userLogin = (props) => {
       setErrPasswordMsg("Please provide a valid password");
       return false;
     }
+
     setErrEmailMsg("");
     setErrPasswordMsg("");
     loginHandler();
@@ -59,6 +61,7 @@ const userLogin = (props) => {
       user_email: user_email,
       password: password
     }
+
     try {
       const resp = await axios.post('http://api.ganies.com/login', user);
       console.log(resp);
@@ -72,7 +75,6 @@ const userLogin = (props) => {
       setMsgUserNotFound('User Not Found');
       console.log(err);
     }
-
   }
 
   const formResetHandler = () => {
@@ -86,7 +88,6 @@ const userLogin = (props) => {
   return (
 
     <div className='loginFormContainer'>
-
       <form className='loginForm' onSubmit={checkValidityHandler}>
         <h2>Login to your account</h2>
         <p className='noUserFoundMsg'>{msgUserNotFound}</p>
@@ -110,18 +111,16 @@ const userLogin = (props) => {
           onChange={(e) => setCurrentPassword(e.target.value)}
         />
         <p className='errInputMsg'>{errPasswordMsg}</p>
+        <span className='signUpMsg'>Sign Up Instead?</span>
         <div className='loginFormBtns' >
           <button className='loginFormBtn' type='submit'>Login</button>
           <button className='loginFormBtn' onClick={formResetHandler}>Reset</button>
         </div>
-        <span className='signUpMsg'>Sign Up Instead?</span>
       </form>
       <div className='formImageController'>
         <img className='formImage' alt='logo' src={formImg} />
       </div>
-
     </div>
-
   )
 };
 
