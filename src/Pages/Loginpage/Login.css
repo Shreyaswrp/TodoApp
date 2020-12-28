@@ -116,14 +116,6 @@
   font-size: 24px;
 }
 
-.accountImage-caption {
-  display: block;
-  font-size: 16px;
-  font-weight: 300;
-  text-align: center;
-  line-height: 1.4286;
-}
-
 .fa-eye,
 .fa-eye-slash {
   position: absolute;

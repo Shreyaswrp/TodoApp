@@ -88,6 +88,10 @@ class Todo extends Component {
     this.setState({ edititems: !this.state.edititems });
   };
 
+  logoutHandler = () => {
+    return this.props.history.push("/");
+  };
+
   render() {
     return (
       <div className="todoContainer">
@@ -117,6 +121,9 @@ class Todo extends Component {
             changeValue={this.changeValue}
           ></Itemslist>
         </form>
+        <button class="logout-button" onClick={this.logoutHandler}>
+          Logout
+        </button>
       </div>
     );
   }

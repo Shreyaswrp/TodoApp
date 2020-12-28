@@ -66,3 +66,22 @@
 input[type="checkbox"]:checked + .listItems {
   text-decoration: line-through;
 }
+
+.logout-button {
+  background-color: #1a73e8;
+  position: absolute;
+  color: white;
+  top: 570px;
+  left: 610px;
+
+  cursor: pointer;
+  height: 35px;
+  border: none;
+  font-size: 20px;
+  border-radius: 3px;
+}
+
+.logout-button:hover {
+  text-transform: uppercase;
+  background-color: rgb(20, 20, 221);
+}

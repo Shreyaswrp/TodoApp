@@ -76,10 +76,13 @@ export class Login extends Component {
         console.log(res.data);
         if (res.status === 200) {
           return this.props.history.push("/Todo");
+        } else {
+          console.log(res.error);
         }
       })
       .catch((err) => {
-        console.log(err.response.statusText);
+        console.log("comming");
+        console.log(err.response);
       });
   };
 
@@ -91,7 +94,7 @@ export class Login extends Component {
           autoComplete="off"
           onSubmit={this.formSubmitHandler}
         >
-          <header className="account-Heading">Create your Account</header>
+          <header className="account-Heading">Login to your Account</header>
           <div className="username-Wrapper">
             <input
               placeholder=" "
@@ -132,9 +135,6 @@ export class Login extends Component {
         </form>
         <div className="rightImage-Container ">
           <img className="account-Image" src={accountSvg}></img>
-          <figcaption className="accountImage-caption">
-            One account for all your services
-          </figcaption>
         </div>
       </div>
     );
