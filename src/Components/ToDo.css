@@ -16,7 +16,7 @@
     border-radius: 15px;
   }
   
-  .heading{
+  .ToDo-heading{
     color: white;
     background: transparent;
     background-color: #8566aa;
@@ -24,7 +24,7 @@
     margin-bottom: 10px;
   }
   
-  .input{
+  .ToDo-input{
     text-align: center;
     height: 30px;
     top:10px;
@@ -37,8 +37,7 @@
     border-bottom: 2px solid #8566aa;
   }
   
-  
-  .button {
+  .ToDo-button {
     min-height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -55,4 +54,18 @@
    color: red;
    margin-left: -40px;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .logout-button {
+    background-color: #1a73e8;
+    position: absolute;
+    color: white;
+    top: 500px;
+    left: 610px;
+    cursor: pointer;
+    height: 35px;
+    border: none;
+    font-size: 20px;
+    border-radius: 3px;
+    margin-left:-40px;
   }

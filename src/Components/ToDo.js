@@ -22,8 +22,8 @@ class ToDo extends React.Component {
         key:''
       }
     }
-    this.addItems = this.addItems.bind(this);
   }
+
    addItems(e){
      e.preventDefault();
      const newItem = this.state.currentItem;
@@ -94,20 +94,25 @@ class ToDo extends React.Component {
   {
     this.setState({Isedited:!this.state.Isedited})
   }
+
+  logoutHandler = () => {
+    return this.props.history.push("/");
+  };
   
  render(){
   return (
     <div className="main_div">
       <div className="center_div">
       <br/>
-      <span className='heading'> ToDo List</span>
+      <span className='ToDo-heading'> ToDo List</span>
       <br/>
         <form onSubmit={this.addItems.bind(this)}>
-          <input className='input' type="text" placeholder="Enter task" value= {this.state.currentItem.text} onChange={this.handleInput.bind(this)}></input>
-          <button className='button' type="submit">+</button>
+          <input className='ToDo-input' type="text" placeholder="Enter task" value= {this.state.currentItem.text} onChange={this.handleInput.bind(this)}></input>
+          <button className='ToDo-button' type="submit">+</button>
           <div className="error-message">{this.state.errmsg}</div>
 <ListItems items={this.state.items} deleteItems={this.deleteItems.bind(this)} setUpdate={this.setUpdate.bind(this)} edit={this.handleEdit}/>
          </form>
+         <button class="logout-button" onClick={this.logoutHandler}>Logout</button>
       </div>
     </div>
   );
