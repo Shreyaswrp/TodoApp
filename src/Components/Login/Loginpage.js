@@ -49,25 +49,25 @@ class Loginpage extends React.Component {
     });
   };
 
-  loginHandler = async () => {
-    const user = {
-      user_email: this.state.userName,
-      password: this.state.password
-  }
-  try {
-      const response = await axios.post('http://api.ganies.com/login',user);
-      console.log(response.data)
-      if (response.status === 200) {
-          localStorage.setItem('token', response.data.auth_token)
-          return this
-              .props
-              .history
-              .push('/todo')
-      } 
-  } catch (err) {
-      this.setState({userAuthenticationFail: 'failed to login, user not found'})
-      console.log(err);
-  }
+   loginHandler = async () => {
+    let user = {
+      user_email: this.state.username,
+      password: this.state.password,
+    };
+    let resp = axios
+      .post("http://api.ganies.com/login", user)
+      .then((res) => {
+        console.log(res.data);
+        if (res.status === 200) {
+          return this.props.history.push("/Todo");
+        } else {
+          console.log(res.error);
+        }
+      })
+      .catch((err) => {
+        console.log("comming");
+        console.log(err.response.data);
+      });
   };
 
   render() {
