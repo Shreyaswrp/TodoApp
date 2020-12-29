@@ -55,7 +55,7 @@ class Loginpage extends React.Component {
       password: this.state.password,
     };
     let resp = axios
-      .post("http://api.ganies.com/login", user)
+      .post("http://api.ganies.com/login",user)
       .then((res) => {
         console.log(res.data);
         if (res.status === 200) {
@@ -65,7 +65,7 @@ class Loginpage extends React.Component {
         }
       })
       .catch((err) => {
-        console.log("comming");
+        console.log("coming");
         console.log(err.response.data);
       });
   };
