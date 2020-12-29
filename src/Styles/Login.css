@@ -1,134 +1,131 @@
 .main-login-container {
-  margin-top: 65px;
-  display: flex;
-  justify-content: center;
-  background-color: rgb(255, 255, 255);
-  width: 600px;
-  height: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 48px 40px 36px;
-  border: 1px solid #dadce0;
-  border-radius: 10px;
-  box-shadow: 15px 10px 40px #dadce0;
+    margin-top: 65px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    width: 600px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 48px 40px 36px;
+    border: 1px solid #dadce0;
+    border-radius: 10px;
+    box-shadow: 15px 10px 40px #dadce0;
 }
 
-.userLogin-Form {
-  margin-top: 80px;
-  height: 307px;
-  width: 434px;
-  flex-direction: column;
+.user-login-Form {
+    margin-top: 80px;
+    height: 307px;
+    width: 434px;
+    flex-direction: column;
 }
 
-.account-Heading {
-  position: absolute;
-  top: 155px;
+.account-heading {
+    position: absolute;
+    top: 155px;
 }
 
-.username-Wrapper,
-.password-Wrapper {
-  position: relative;
+.password-wrapper,
+.username-wrapper {
+    position: relative;
 }
 
-.inputField-Username,
-.inputField-Password {
-  font-size: 14px;
-  height: 20px;
-  padding: 7px 9px;
-  direction: ltr;
-  width: 250px;
-  text-align: left;
-  border: 2px solid #dadce0;
-  border-radius: 4px;
-  color: #202124;
-  display: block;
-  line-height: 24px;
-  margin: 40px 0 0 0;
+.input-field-password,
+.input-field-username {
+    font-size: 14px;
+    height: 20px;
+    padding: 7px 9px;
+    direction: ltr;
+    width: 250px;
+    text-align: left;
+    border: 2px solid #dadce0;
+    border-radius: 4px;
+    color: #202124;
+    display: block;
+    line-height: 24px;
+    margin: 40px 0 0;
 }
 
-.username-text,
-.password-text {
-  position: absolute;
-  top: 8px;
-  left: 2%;
-  pointer-events: none;
-  transition: 0.4s;
+.password-text,
+.username-text {
+    position: absolute;
+    top: 8px;
+    left: 2%;
+    pointer-events: none;
+    transition: 0.4s;
+}
+.input-field-username:focus + .username-text,
+.input-field-username:not(:placeholder-shown) + .username-text {
+    transform: translateY(-100%);
+    background: white;
+    font-size: 12px;
+}
+.input-field-password:focus + .password-text,
+.input-field-password:not(:placeholder-shown) + .password-text {
+    transform: translateY(-100%);
+    background: white;
+    font-size: 12px;
 }
 
-.inputField-Username:focus + .username-text,
-.inputField-Username:not(:placeholder-shown) + .username-text {
-  transform: translateY(-100%);
-  background: white;
-  font-size: 12px;
+.error-message {
+    color: crimson;
 }
 
-.inputField-Password:focus + .password-text,
-.inputField-Password:not(:placeholder-shown) + .password-text {
-  transform: translateY(-100%);
-  background: white;
-  font-size: 12px;
+.login-button {
+    display: block;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    width: 79px;
+    height: 35px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none solid rgb(255, 255, 255);
+    font-size: 14px;
+    background-color: #1a73e8;
+    position: absolute;
+    top: 400px;
+    right: 700px;
+    font-size: 14px;
+    line-height: 20px;
+}
+.login-button:hover {
+    text-transform: uppercase;
+    background-color: rgb(20, 20, 221);
 }
 
-.error-Message {
-  color: crimson;
+.new-account-Link {
+    position: absolute;
+    top: 323px;
+    left: 361px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1a73e8;
+    margin-top: 80px;
+    cursor: pointer;
 }
 
-.login-Button {
-  display: block;
-  border-radius: 5px;
-  border: none;
-  color: white;
-  width: 79px;
-  height: 35px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none solid rgb(255, 255, 255);
-  font-size: 14px;
-  background-color: #1a73e8;
-  position: absolute;
-  top: 400px;
-  right: 700px;
-  font-size: 14px;
-  line-height: 20px;
+.right-image-container {
+    height: 512px;
+    width: 300px;
 }
 
-.login-Button:hover {
-  text-transform: uppercase;
-  background-color: rgb(20, 20, 221);
+.account-image {
+    height: 244px;
+    width: 244px;
+    margin-top: 45px;
 }
 
-.newAccount-Link {
-  position: absolute;
-  top: 323px;
-  left: 361px;
-  font-size: 14px;
-  line-height: 20px;
-  color: #1a73e8;
-  margin-top: 80px;
-  cursor: pointer;
-}
-
-.rightImage-Container {
-  height: 512px;
-  width: 300px;
-}
-
-.account-Image {
-  height: 244px;
-  width: 244px;
-  margin-top: 45px;
-}
-
-.account-Heading {
-  font-family: sans-serif;
-  display: block;
-  text-align: left;
-  font-size: 24px;
+.account-heading {
+    font-family: sans-serif;
+    display: block;
+    text-align: left;
+    font-size: 24px;
 }
 
 .password-hide-icon,
 .password-show-icon {
-  position: absolute;
-  top: 13px;
-  right: 100px;
+    position: absolute;
+    top: 13px;
+    right: 100px;
 }
