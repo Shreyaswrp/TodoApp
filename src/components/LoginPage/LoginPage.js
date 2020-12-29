@@ -4,8 +4,8 @@ import loginImage from '../../asset/account.svg'
 function LoginPage(props) {
     return (
         <div>
-            <div className='loginPage-container'>
-                <div className="loginPage-heading">
+            <div className='login-page-container'>
+                <div className="login-page-heading">
                     <h4>Login to your account</h4>
                 </div>
                 <div className='form-container'>
@@ -46,6 +46,9 @@ function LoginPage(props) {
                                 onClick={props.changePasswordVisibilityType}></i>
                         </div>
                         <span className='password-error-message'>{props.stateData.passwordErrorMessage}</span>
+                        <div>
+                            <span className='userNotFound-error-message'>{props.stateData.userAuthenticationFail}</span>
+                        </div>
                         <button type="submit" className='login-button'>Login</button>
                         <div className='new-account-link'>Create Account</div>
                     </form>

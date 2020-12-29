@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import TodoItem from './TodoItem'
-import '../../style/StyleTodo.css'
+import '../../style/Todo.css'
 import {confirmAlert} from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
@@ -74,7 +74,7 @@ class TodoForm extends Component {
     handleItemEdit = (text, key) => {
         if (this.state.isEditing === true) {
             const items = this.state.todoList;
-            items.map(item => {
+            items.forEach(item => {
                 if (item.key === key) {
                     return item.text = text;
                 }
