@@ -54,12 +54,14 @@
     pointer-events: none;
     transition: 0.4s;
 }
+
 .input-field-username:focus + .username-text,
 .input-field-username:not(:placeholder-shown) + .username-text {
     transform: translateY(-100%);
     background: white;
     font-size: 12px;
 }
+
 .input-field-password:focus + .password-text,
 .input-field-password:not(:placeholder-shown) + .password-text {
     transform: translateY(-100%);
@@ -89,6 +91,7 @@
     font-size: 14px;
     line-height: 20px;
 }
+
 .login-button:hover {
     text-transform: uppercase;
     background-color: rgb(20, 20, 221);
