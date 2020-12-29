@@ -5,7 +5,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import ListItems from './ListItems'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrash,faEdit } from '@fortawesome/free-solid-svg-icons'
-
 library.add(faTrash)
 library.add(faEdit)
 
@@ -14,8 +13,8 @@ class ToDo extends React.Component {
     super(props);
     this.state = {
       items: [],
-      errmsg: "",
-      Isedited: false,
+      errorMessages: "",
+      isEdited: false,
       currentItem: {
         text: '',
         key: ''
@@ -28,14 +27,14 @@ class ToDo extends React.Component {
     const newItem = this.state.currentItem;
     if (newItem.text.trim().length === 0 || newItem.text == "") {
       this.setState({
-        errmsg: "Task cannot be empty",
+        errorMessages: "Task cannot be empty",
       })
     }
     else {
       const items = [newItem, ...this.state.items];
       this.setState({
         items: items,
-        errmsg: '',
+        errorMessages: '',
         currentItem: {
           text: '',
           key: ''
@@ -75,7 +74,7 @@ class ToDo extends React.Component {
   }
 
   setUpdate(text, key) {
-    if (this.state.Isedited === true) {
+    if (this.state.isEdited === true) {
       const items = this.state.items;
       items.map(item => {
         if (item.key === key) {
@@ -89,7 +88,7 @@ class ToDo extends React.Component {
   }
 
   handleEdit = () => {
-    this.setState({ Isedited: !this.state.Isedited })
+    this.setState({ isEdited: !this.state.isEdited })
   }
 
   logoutHandler = () => {
@@ -98,15 +97,13 @@ class ToDo extends React.Component {
 
   render() {
     return (
-      <div className="main_div">
-        <div className="center_div">
-          <br />
-          <span className='ToDo-heading'> ToDo List</span>
-          <br />
+      <div className="main-div">
+        <div className="center-div">
+          <span className='todo-heading'> ToDo List</span>
           <form onSubmit={this.addItems.bind(this)}>
-            <input className='ToDo-input' type="text" placeholder="Enter task" value={this.state.currentItem.text} onChange={this.handleInput.bind(this)}></input>
-            <button className='ToDo-button' type="submit">+</button>
-            <div className="error-message">{this.state.errmsg}</div>
+            <input className='todo-input' type="text" placeholder="Enter task" value={this.state.currentItem.text} onChange={this.handleInput.bind(this)}></input>
+            <button className='todo-button' type="submit">+</button>
+            <div className="error-message">{this.state.errorMessages}</div>
             <ListItems items={this.state.items} deleteItems={this.deleteItems.bind(this)} setUpdate={this.setUpdate.bind(this)} edit={this.handleEdit} />
           </form>
           <button class="logout-button" onClick={this.logoutHandler}>Logout</button>
@@ -115,4 +112,5 @@ class ToDo extends React.Component {
     );
   }
 }
+
 export default ToDo;

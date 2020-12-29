@@ -31,10 +31,10 @@ class Loginpage extends React.Component {
       this.loginHandler();
       this.setState({
         usernameErrorMessage: "",
-        passwordErrMsg: "",
+        passwordErrorMessge: "",
       });
     }
-  };
+   };
 
   handleInput = (e) => {
     this.setState({
@@ -51,40 +51,40 @@ class Loginpage extends React.Component {
 
   loginHandler = async () => {
     const user = {
-      user_email: this.state.username,
-      password: this.state.password,
-    };
-    const resp = axios
-      .post("http://api.ganies.com/login", user)
-      .then((res) => {
-        console.log(res.data);
-        if (res.status === 200) {
-          return this.props.history.push("/Todo");
-        } else {
-          console.log(res.error);
-        }
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
+      user_email: this.state.userName,
+      password: this.state.password
+  }
+  try {
+      const response = await axios.post('http://api.ganies.com/login',user);
+      console.log(response.data)
+      if (response.status === 200) {
+          localStorage.setItem('token', response.data.auth_token)
+          return this
+              .props
+              .history
+              .push('/todo')
+      } 
+  } catch (err) {
+      this.setState({userAuthenticationFail: 'failed to login, user not found'})
+      console.log(err);
+  }
   };
 
   render() {
     return (
       <div className="main-container">
-        <form className="userLogin-Form" onSubmit={this.SubmitHandler} autoComplete="off">
+        <form className="userlogin-form" onSubmit={this.SubmitHandler} autoComplete="off">
           <header className="form-heading">Login to your Account</header>
-          <div className="username-Wrapper">
-            <input className="username-input" placeholder=" "
+          <div className="username-wrapper">
+           <input className="username-input" placeholder=" "
               name="username"
               value={this.state.username}
               onChange={this.handleInput}
               onClick={this.errMsgHandler} />
             <label className="username-text">Username</label>
           </div>
-          <span className="errorMsg">{this.state.usernameErrorMessage}</span>
-
-          <div className="password-Wrapper">
+          <span className="errormessage">{this.state.usernameErrorMessage}</span>
+          <div className="password-wrapper">
             <input className="password-input" placeholder=" "
               type={this.state.passwordtype ? "password" : "password"}
               name="password"
@@ -93,13 +93,12 @@ class Loginpage extends React.Component {
               onClick={this.errMsgHandler} />
             <label className="password-text">Password</label>
           </div>
-          <span className="errorMsg">{this.state.passwordErrorMessage}</span>
-
-          <button className="submit-Button" type="submit">LogIn</button>
-          <a className="create-new-account-link"> Create a account</a>
+          <span className="errormessage">{this.state.passwordErrorMessage}</span>
+          <button className="submit-button" type="submit">LogIn</button>
+          <a className="account-link"> Create a account</a>
         </form>
-        <div className="Image-Container ">
-          <img className="account-Image" src={account}></img>
+        <div className="image-container">
+          <img className="account-image" src={account}></img>
         </div>
       </div>
     );

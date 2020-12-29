@@ -1,4 +1,4 @@
-.main_div{
+.main-div {
     width: 100%;
     height: 100vh;
     background:#6983aa;
@@ -9,22 +9,22 @@
     text-align: center; 
   }
   
-  .center_div{
+  .center-div {
     width: 300px;
     height: 80vh;
     background-color: #f4f4f4;
     border-radius: 15px;
   }
   
-  .ToDo-heading{
+  .todo-heading{
     color: white;
     background: transparent;
     background-color: #8566aa;
-    padding: 6px 0 2px 0;
-    margin-bottom: 10px;
+    padding: 2px 0 0px 0;
+    margin-bottom: 0px;
   }
   
-  .ToDo-input{
+  .todo-input{
     text-align: center;
     height: 30px;
     top:10px;
@@ -37,7 +37,7 @@
     border-bottom: 2px solid #8566aa;
   }
   
-  .ToDo-button {
+  .todo-button {
     min-height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -53,9 +53,9 @@
   }
   
   .error-message{   
-   color: red;
-   margin-left: -40px;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: red;
+    margin-left: -40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
   .logout-button {

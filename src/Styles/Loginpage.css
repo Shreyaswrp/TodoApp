@@ -13,24 +13,23 @@
   box-shadow: 15px 10px 40px #dadce0;
 }
 
-.userLogin-Form {
+.userlogin-form {
   margin-top: 50px;
   height: 307px;
   width: 434px;
   flex-direction: column;
 }
 
-.form-heading{
-    font-family: sans-serif;
-    display: block;
-    text-align: left;
-    font-size: 24px;
-    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
-    font-weight: 400;
+.form-heading {
+  font-family: sans-serif;
+  display: block;
+  text-align: left;
+  font-size: 24px;
+  font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+  font-weight: 400;
   }
 
-.username-Wrapper,
-.password-Wrapper {
+.username-wrapper,.password-wrapper {
   position: relative;
 }
 
@@ -73,29 +72,29 @@
   font-size: 12px;
 }
 
-.errorMsg {
+.errormessage {
   color: crimson;
 }
 
-.submit-Button {
-    display: block;
-    border-radius: 5px;
-    border: none;
-    color: white;
-    width: 79px;
-    height: 35px;
-    cursor: pointer;
-    text-align: center;
-    letter-spacing: 0.15px;
-    line-height: 20px;
-    text-decoration: none solid rgb(255, 255, 255);
-    font-size: 14px;
-    background-color: #1a73e8;
-    margin-top: 45px;
-    margin-left: 190px;
+.submit-button {
+  display: block;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  width: 79px;
+  height: 35px;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 0.15px;
+  line-height: 20px;
+  text-decoration: none solid rgb(255, 255, 255);
+  font-size: 14px;
+  background-color: #1a73e8;
+  margin-top: 45px;
+  margin-left: 190px;
 }
 
-.create-new-account-link{
+.account-link{
   position: absolute;
   top: 340px;
   font-size: 14px;
@@ -105,12 +104,12 @@
   cursor: pointer;
 }
 
-.Image-Container {
+.image-container {
   height: 512px;
   width: 300px;
 }
 
-.account-Image {
+.account-image {
   height: 244px;
   width: 244px;
   margin-top: 45px;

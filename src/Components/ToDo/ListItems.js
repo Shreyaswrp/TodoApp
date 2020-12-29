@@ -9,8 +9,7 @@ function ListItems(props) {
             <p>
                 <input type='checkbox' />
                 <input className='list-input' type="text" id={item.key} value={item.text} onChange={(e) => {
-                    props.setUpdate(e.target.value, item.key)
-                }} />
+                    props.setUpdate(e.target.value, item.key)}} />
                 <span>
                     <FontAwesomeIcon className="edit-icons" onClick={() => {
                         props.edit()
