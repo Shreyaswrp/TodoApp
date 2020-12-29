@@ -1,5 +1,5 @@
 import React from 'react';
-import './ListItems.css';
+import '../../Styles/ListItems.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function ListItems(props) {
@@ -23,7 +23,7 @@ function ListItems(props) {
         </div>
     })
     return <div>
-     {props.items.length===0 ? <p className="empty-message">No items has been added</p>:listItems}
+        {props.items.length === 0 ? <p className="empty-message">No items has been added</p> : listItems}
     </div>;
 }
 

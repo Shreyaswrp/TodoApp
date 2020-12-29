@@ -48,6 +48,8 @@
     outline: none;
     margin-left: 10px;
     color: white;
+    padding-left: 5px;
+    padding-right: 5px;
   }
   
   .error-message{   
@@ -61,7 +63,7 @@
     position: absolute;
     color: white;
     top: 500px;
-    left: 610px;
+    left: 640px;
     cursor: pointer;
     height: 35px;
     border: none;

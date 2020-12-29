@@ -1,6 +1,6 @@
 import React from "react";
-import "./Loginpage.css";
-import account from "./account.svg";
+import "../../Styles/Loginpage.css";
+import account from "../../Assets/account.svg";
 import axios from 'axios'
 
 class Loginpage extends React.Component {
@@ -19,18 +19,18 @@ class Loginpage extends React.Component {
     const regUsername = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (this.state.username === "" || this.state.password === "") {
       this.setState({
-         usernameErrorMessage: "Username cannot be empty",
+        usernameErrorMessage: "Username cannot be empty",
         passwordErrorMessage: "Password cannot be empty",
       });
     } else if (!regUsername.test(this.state.username) || this.state.password.length < 6) {
       this.setState({
-         usernameErrorMessage: "Please Enter a valid Username",
-         passwordErrorMessage: "Use 6 characters or more for your password",
+        usernameErrorMessage: "Please Enter a valid Username",
+        passwordErrorMessage: "Use 6 characters or more for your password",
       });
     } else {
       this.loginHandler();
       this.setState({
-         usernameErrorMessage: "",
+        usernameErrorMessage: "",
         passwordErrMsg: "",
       });
     }
@@ -42,7 +42,7 @@ class Loginpage extends React.Component {
     });
   };
 
-errMsgHandler = () => {
+  errMsgHandler = () => {
     this.setState({
       usernameErrorMessage: "",
       passwordErrorMessage: "",
@@ -79,8 +79,8 @@ errMsgHandler = () => {
               name="username"
               value={this.state.username}
               onChange={this.handleInput}
-              onClick={this.errMsgHandler}/>
-            <label className="username-text">Username or Email</label>
+              onClick={this.errMsgHandler} />
+            <label className="username-text">Username</label>
           </div>
           <span className="errorMsg">{this.state.usernameErrorMessage}</span>
 
@@ -90,7 +90,7 @@ errMsgHandler = () => {
               name="password"
               value={this.state.password}
               onChange={this.handleInput}
-              onClick={this.errMsgHandler}/>
+              onClick={this.errMsgHandler} />
             <label className="password-text">Password</label>
           </div>
           <span className="errorMsg">{this.state.passwordErrorMessage}</span>

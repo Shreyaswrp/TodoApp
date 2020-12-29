@@ -1,6 +1,6 @@
 import React from 'react'
-import ToDo from './Components/ToDo'
-import Loginpage from './Pages/Login/Loginpage'
+import ToDo from './Components/ToDo/ToDo'
+import Loginpage from './Components/Login/Loginpage'
 import {Route} from 'react-router-dom'
 
 function App() {
