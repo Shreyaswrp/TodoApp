@@ -12,7 +12,7 @@ class Login extends React.Component {
             password: '',
             userNameErrorMessage: '',
             passwordErrorMessage: '',
-            userAuthentication: '',
+            userAuthenticationFail: '',
             passwordVisibility: true
         }
     }
@@ -33,6 +33,7 @@ class Login extends React.Component {
         } else {
             this.handleUserLogin()
             this.setState({userNameErrorMessage: '', passwordErrorMessage: ''})
+            this.setState({userName:'',password:''})
         }
     }
 
@@ -43,7 +44,8 @@ class Login extends React.Component {
     }
 
     handleUserErrorMessage = () => {
-        this.setState({userNameErrorMessage: ''})
+        this.setState({userNameErrorMessage: '',
+        userAuthenticationFail:''})
     }
 
     handlePasswordErrorMessage = () => {
@@ -72,11 +74,9 @@ class Login extends React.Component {
                     .props
                     .history
                     .push('/todo')
-            } else {
-                console.log(response.error)
-            }
+            } 
         } catch (err) {
-            this.setState({userAuthentication: 'failed to login'})
+            this.setState({userAuthenticationFail: 'failed to login, user not found'})
             console.log(err);
         }
     }
