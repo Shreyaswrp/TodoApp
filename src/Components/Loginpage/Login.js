@@ -122,18 +122,20 @@ export class Login extends Component {
             <label className="password-text">Password</label>
             <i
               class={
-                this.state.passwordtype ? "fas fa-eye-slash" : "far fa-eye"
+                this.state.passwordtype
+                  ? "fas fa-eye-slash  password-hide-icon"
+                  : "far fa-eye password-show-icon"
               }
               onClick={this.changePasswordType}
             ></i>
           </div>
 
           <span className="error-Message">{this.state.passwordErrMsg}</span>
-          <button className="submit-Button" type="submit">
+          <button className="login-Button" type="submit">
             LogIn
           </button>
-          <a className="newAccount-Link"> Create a account</a>
         </form>
+        <a className="newAccount-Link">create a account</a>
         <div className="rightImage-Container ">
           <img className="account-Image" src={accountSvg}></img>
         </div>

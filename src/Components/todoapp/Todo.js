@@ -21,7 +21,7 @@ class Todo extends Component {
   submitHandler = (e) => {
     e.preventDefault();
     const currentdata = this.state.currentElement;
-    if (currentdata.text == "" || currentdata.text.trim().length === 0) {
+    if (currentdata.text === "" || currentdata.text.trim().length === 0) {
       this.setState({ errmsg: "Task cannot be empty" });
     } else {
       const inputdata = [currentdata, ...this.state.list];

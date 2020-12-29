@@ -12,12 +12,19 @@
   border-radius: 10px;
   box-shadow: 15px 10px 40px #dadce0;
 }
+
 .userLogin-Form {
   margin-top: 80px;
   height: 307px;
   width: 434px;
   flex-direction: column;
 }
+
+.account-Heading {
+  position: absolute;
+  top: 155px;
+}
+
 .username-Wrapper,
 .password-Wrapper {
   position: relative;
@@ -66,7 +73,7 @@
   color: crimson;
 }
 
-.submit-Button {
+.login-Button {
   display: block;
   border-radius: 5px;
   border: none;
@@ -75,23 +82,25 @@
   height: 35px;
   cursor: pointer;
   text-align: center;
-  letter-spacing: 0.15px;
-  line-height: 20px;
   text-decoration: none solid rgb(255, 255, 255);
   font-size: 14px;
   background-color: #1a73e8;
-  margin-top: 45px;
-  margin-left: 190px;
+  position: absolute;
+  top: 400px;
+  right: 700px;
+  font-size: 14px;
+  line-height: 20px;
 }
 
-.submit-Button:hover {
+.login-Button:hover {
   text-transform: uppercase;
   background-color: rgb(20, 20, 221);
 }
 
 .newAccount-Link {
   position: absolute;
-  top: 350px;
+  top: 323px;
+  left: 361px;
   font-size: 14px;
   line-height: 20px;
   color: #1a73e8;
@@ -117,8 +126,8 @@
   font-size: 24px;
 }
 
-.fa-eye,
-.fa-eye-slash {
+.password-hide-icon,
+.password-show-icon {
   position: absolute;
   top: 13px;
   right: 100px;
