@@ -14,7 +14,11 @@
 
 .loginPage-heading {
     margin-left: 40px;
+<<<<<<< HEAD:src/style/login.css
     margin-top: 80px;
+=======
+    margin-top: 60px;
+>>>>>>> refacter-> changed folder structure:src/pages/loginPage/login.css
     font-size: 22px;
     font-weight: 300;
     font-family: Georgia, 'Times New Roman', Times, serif, Geneva, Tahoma, sans-serif;
@@ -127,11 +131,20 @@
     color: red;
 }
 
+<<<<<<< HEAD:src/style/login.css
 .password-visibility-icon {
     position: absolute;
     top: 7px;
     left: 190px;
     font-size: 12px;
     zoom: 1.3;
+=======
+.password-visibility-icon
+{
+    position: absolute;
+    top: 5px;
+    left: 155px;
+>>>>>>> refacter-> changed folder structure:src/pages/loginPage/login.css
     color: blue;
+    font-size: 12px;
 }

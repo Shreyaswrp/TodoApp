@@ -4,8 +4,13 @@ import loginImage from '../../asset/account.svg'
 function LoginPage(props) {
     return (
         <div>
+<<<<<<< HEAD:src/components/LoginPage/LoginPage.js
             <div className='loginPage-container'>
                 <div className="loginPage-heading">
+=======
+            <div className='login-container'>
+                <div className="login-form-heading">
+>>>>>>> refacter-> changed folder structure:src/pages/loginPage/LoginPage.js
                     <h4>Login to your account</h4>
                 </div>
                 <div className='form-container'>

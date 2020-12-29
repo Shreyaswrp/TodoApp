@@ -12,7 +12,10 @@ class Login extends React.Component {
             password: '',
             userNameErrorMessage: '',
             passwordErrorMessage: '',
+<<<<<<< HEAD:src/components/LoginPage/Login.js
             userAuthentication: '',
+=======
+>>>>>>> refacter-> changed folder structure:src/pages/loginPage/Login.js
             passwordVisibility: true
         }
     }
@@ -28,17 +31,28 @@ class Login extends React.Component {
             this.setState({userNameErrorMessage: 'User name cannot be empty!', passwordErrorMessage: 'Password cannot be empty!'})
         } else if (!emailValidation.test(this.state.userName)) {
             this.setState({userNameErrorMessage: 'Enter a valid email id!'})
+<<<<<<< HEAD:src/components/LoginPage/Login.js
         } else if (this.state.password.length < 5) {
             this.setState({passwordErrorMessage: 'Enter a valid password!'})
         } else {
             this.handleUserLogin()
             this.setState({userNameErrorMessage: '', passwordErrorMessage: ''})
+=======
+        } else {
+            this.handleLogin()
+            this.setState({userNameErrorMessage: '', passwordErrorMessage: ''})
+
+>>>>>>> refacter-> changed folder structure:src/pages/loginPage/Login.js
         }
     }
 
     handleInputChange = (event) => {
         this.setState({
+<<<<<<< HEAD:src/components/LoginPage/Login.js
             [event.target.name]: event.target.value
+=======
+                [event.target.name]: event.target.value
+>>>>>>> refacter-> changed folder structure:src/pages/loginPage/Login.js
         })
     }
 
@@ -58,6 +72,7 @@ class Login extends React.Component {
         })
     }
 
+<<<<<<< HEAD:src/components/LoginPage/Login.js
     handleUserLogin = async() => {
         const user = {
             user_email: this.state.userName,
@@ -79,6 +94,24 @@ class Login extends React.Component {
             this.setState({userAuthentication: 'failed to login'})
             console.log(err);
         }
+=======
+    handleLogin = async () => {
+       const user={
+            user_email:this.state.userName,
+            password:this.state.password
+        }
+        try {
+            const resp = await axios.post('http://api.ganies.com/login', user);
+            // console.log(resp);
+            if (resp.status && resp.status === 200) {
+              localStorage.setItem('auth', resp.data.auth_token);
+            } else {
+              console.log(resp.statusText);
+            }
+          } catch (err) {
+            console.log(err);
+          }
+>>>>>>> refacter-> changed folder structure:src/pages/loginPage/Login.js
     }
 
     render() {
