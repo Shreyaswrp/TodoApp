@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import fetch from 'node-fetch';
 import './UserLogin.css';
 import formImg from '../../images/form_pic.png';
 
@@ -56,73 +56,75 @@ const userLogin = (props) => {
 
   };
 
-  const loginHandler = async () => {
-    const user = {
-      user_email: user_email,
-      password: password
-    }
-
-    try {
-      const resp = await axios.post('http://api.ganies.com/login', user);
-      console.log(resp);
-      if (resp.status && resp.status === 200) {
-        localStorage.setItem('auth', resp.data.auth_token);
-        props.history.push('/todoapp');
-      } else {
-        console.log(resp.status);
+  const loginHandler = () => {
+    fetch("http://api.ganies.com/login", {
+      method: 'POST',
+      body: JSON.stringify({
+        user_email: user_email,
+        password: password
+      }),
+      headers: {
+        'Content-Type': 'application/json'
       }
-    } catch (err) {
-      setMsgUserNotFound('User Not Found');
-      console.log(err);
+    }).then(res => {
+      return res.json();
+    }).then(resData => {
+      if (resData.auth_token) {
+        localStorage.setItem('auth', resData.auth_token);
+        props.history.push('/todoapp');
+      }
+      else
+        setMsgUserNotFound('User Not Found');
+    }).catch(err => console.log(err));
+  
+  }
+
+    const formResetHandler = () => {
+      setUserEmail("");
+      setPassword("");
+      setMsgUserNotFound("");
+      setErrEmailMsg("");
+      setErrPasswordMsg("");
     }
-  }
 
-  const formResetHandler = () => {
-    setUserEmail("");
-    setPassword("");
-    setMsgUserNotFound("");
-    setErrEmailMsg("");
-    setErrPasswordMsg("");
-  }
+    return (
 
-  return (
-
-    <div className='loginFormContainer'>
-      <form className='loginForm' onSubmit={checkValidityHandler}>
-        <h2>Login to your account</h2>
-        <p className='noUserFoundMsg'>{msgUserNotFound}</p>
-        <input
-          className='loginInputField'
-          id="email"
-          type='text'
-          placeholder='Email'
-          required
-          value={user_email}
-          onChange={(e) => setCurrentUserEmail(e.target.value)}
-        />
-        <p className='errInputMsg'>{errEmailMsg}</p>
-        <input
-          className='loginInputField'
-          id="password"
-          placeholder="Password"
-          value={password}
-          type="password"
-          required
-          onChange={(e) => setCurrentPassword(e.target.value)}
-        />
-        <p className='errInputMsg'>{errPasswordMsg}</p>
-        <span className='signUpMsg'>Sign Up Instead?</span>
-        <div className='loginFormBtns' >
-          <button className='loginFormBtn' type='submit'>Login</button>
-          <button className='loginFormBtn' onClick={formResetHandler}>Reset</button>
+      <div className='loginFormContainer'>
+        <form className='loginForm' onSubmit={checkValidityHandler}>
+          <h2>Login to your account</h2>
+          <p className='noUserFoundMsg'>{msgUserNotFound}</p>
+          <input
+            className='loginInputField'
+            id="email"
+            type='text'
+            placeholder='Email'
+            required
+            value={user_email}
+            onChange={(e) => setCurrentUserEmail(e.target.value)}
+          />
+          <p className='errInputMsg'>{errEmailMsg}</p>
+          <input
+            className='loginInputField'
+            id="password"
+            placeholder="Password"
+            value={password}
+            type="password"
+            required
+            onChange={(e) => setCurrentPassword(e.target.value)}
+          />
+          <p className='errInputMsg'>{errPasswordMsg}</p>
+          <span className='signUpMsg'>Sign Up Instead?</span>
+          <div className='loginFormBtns' >
+            <button className='loginFormBtn' type='submit'>Login</button>
+            <button className='loginFormBtn' onClick={formResetHandler}>Reset</button>
+          </div>
+        </form>
+        <div className='formImageController'>
+          <img className='formImage' alt='logo' src={formImg} />
         </div>
-      </form>
-      <div className='formImageController'>
-        <img className='formImage' alt='logo' src={formImg} />
       </div>
-    </div>
-  )
-};
+    )
+  };
 
 
-export default userLogin;
+  export default userLogin;
