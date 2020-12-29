@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import {  } from "./style/TodoList.css";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import { confirmAlert } from "react-confirm-alert";
@@ -26,10 +27,12 @@ class ToDo extends Component {
         {
           label: "Yes",
           onClick: () => {
+            debugger;
             const todos = { ...this.state.todoItems };
-
             delete todos[item];
             this.setState({ todoItems: todos });
+          
+
           },
         },
         {
@@ -49,12 +52,14 @@ class ToDo extends Component {
   };
 
   render() {
+    
     return (
       <div className="App">
         <div className="Todo">
           <div className="TodoCard">
             <div className="card">
               <TodoForm addToDoItems={this.addItems} />
+              <span className="emptyMsg">{Object.keys(this.state.todoItems).map((key) => [Number(key), this.state.todoItems[key]]).length === 0 ? 'No Items in' : ''}</span>
               <ul>
                 {Object.keys(this.state.todoItems)
                   .reverse()

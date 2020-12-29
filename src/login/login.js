@@ -1,7 +1,10 @@
 import React from "react";
 import Img from "../img.png";
-import {  useEffect } from "react";
-import axios from 'axios';
+import {} from "../style/login.css";
+import { Redirect, Route } from "react-router-dom";
+import Todo from "../ToDo";
+
+import axios from "axios";
 class Login extends React.Component {
   state = {
     user_email: "",
@@ -9,6 +12,7 @@ class Login extends React.Component {
     EmailError: "",
     PasswordError: "",
     PassWordVisibility: true,
+    InvalidResponse: "",
   };
   Validate = (e) => {
     e.preventDefault();
@@ -36,14 +40,35 @@ class Login extends React.Component {
     this.loginHandler();
   };
 
+  loginHandler = async () => {
+    const user = {
+      user_email: this.state.user_email,
+      password: this.state.user_password,
+    };
+    const resp = await axios.post("http://api.ganies.com/login", user);
+    try {
+     
+      if (resp.status === 200) {
+        localStorage.setItem("auth", resp.data.auth_token);
+        this.props.history.push("/Todo");
+      } else {
+        
+        console.log(resp.status);
+        this.setState({ InvalidResponse: "User not Found" });
+      }
+    } catch (err) {
+    //setMsgUserNotFound('User Not Found');
 
-  
- 
+     this.setState({ InvalidResponse: "User not Found" });
+     }
+   };
+
   render() {
     return (
-      <div className="body">
+      <div className="body1">
         <div className="LoginCard">
           <h1 class="formTitle">Login to your Account</h1>
+          <span>{this.state.InvalidResponse}</span>
           <form className="form">
             <div className="LoginForm">
               <input
@@ -52,7 +77,7 @@ class Login extends React.Component {
                 placeholder=" "
                 onChange={(e) => this.setState({ user_email: e.target.value })}
                 value={this.user_email}
-                onInput={this.Validate}
+                // onInput={this.Validate}
               />
               <label for="" className="formLabel">
                 Email
@@ -63,19 +88,18 @@ class Login extends React.Component {
             </div>
             <div className="LoginForm">
               <input
-                type= "text"
+                type="text"
                 className="formInput "
                 placeholder=" "
                 value={this.user_password}
                 onChange={(e) =>
                   this.setState({ user_password: e.target.value })
                 }
-                onInput={this.Validate}
+                // onInput={this.Validate}
               />
               <label for="" className="formLabel">
                 Password
               </label>
-             
             </div>
             <div className="ErrorMsg">
               <span>{this.state.PasswordError}</span>

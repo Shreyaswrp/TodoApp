@@ -1,7 +1,6 @@
 .Todo {
   width: 100%;
   height: 100vh;
-  text-align: center;
   align-items: center;
   justify-content: center;
   flex-direction: row;
@@ -10,7 +9,7 @@
 }
 
 .TodoCard {
-  width: 25%;
+  width: 300px;
   border-radius: 15px;
   background-color: #f4f4f4;
   height: 80vh;
@@ -21,6 +20,7 @@
   background-color: #8566ab;
   padding: 6px;
   color: white;
+  text-align: center;
 }
 
 .btn {
@@ -69,24 +69,25 @@
   font-weight: 100;
 }
 
-li {
+.ItemsList li {
   width: 30%;
   display: flex;
 }
 
-li input[type="checkbox"] {
+.ItemsList li input[type="checkbox"] {
   height: 30px;
   background: none;
 }
 
-li input[type="text"] {
+.ItemsList li input[type="text"] {
+  font-size: 20px;
   background: transparent;
  width: 100px;
   border: none;
   outline: none;
 }
 
-li button {
+.ItemsList li button {
   justify-content: flex-end;
 }
 
@@ -107,4 +108,11 @@ li button {
   color: green;
   font-size: 25px;
   margin-top: 7px;
+}
+.ErrorMsg {
+ color: red;
+ margin-left: 80px;
+}
+.emptyMsg{
+  margin-left: 95px;
 }

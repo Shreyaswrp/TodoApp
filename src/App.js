@@ -1,12 +1,14 @@
 import "./App.css";
-// import {  } from "./style/TodoList.css";
 import {  } from "./style/login.css";
-// import Todo from "./ToDo";
+ import Todo from "./ToDo";
+
 import Login from "./login/login";
+import { Route } from 'react-router-dom';
 function App() {
   return (
     <div >
-      <Login/>
+      <Route path='/' exact component={Login} />
+        <Route path='/Todo' exact  component={Todo} />
     </div>
   );
 }
