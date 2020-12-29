@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import './login.css'
+import '../../style/login.css'
 import LoginPage from "./LoginPage";
 
 class Login extends React.Component {
@@ -12,8 +12,13 @@ class Login extends React.Component {
             password: '',
             userNameErrorMessage: '',
             passwordErrorMessage: '',
+            userAuthentication: '',
             passwordVisibility: true
         }
+    }
+
+    componentDidMount = () => {
+        localStorage.clear();
     }
 
     handleLoginFormSubmit = (event) => {
@@ -23,20 +28,17 @@ class Login extends React.Component {
             this.setState({userNameErrorMessage: 'User name cannot be empty!', passwordErrorMessage: 'Password cannot be empty!'})
         } else if (!emailValidation.test(this.state.userName)) {
             this.setState({userNameErrorMessage: 'Enter a valid email id!'})
-        } 
-        else if (this.state.password.length<5) {
+        } else if (this.state.password.length < 5) {
             this.setState({passwordErrorMessage: 'Enter a valid password!'})
-        }
-        else {
-            this.handleLogin()
+        } else {
+            this.handleUserLogin()
             this.setState({userNameErrorMessage: '', passwordErrorMessage: ''})
-
         }
     }
 
     handleInputChange = (event) => {
         this.setState({
-                [event.target.name]: event.target.value
+            [event.target.name]: event.target.value
         })
     }
 
@@ -56,23 +58,27 @@ class Login extends React.Component {
         })
     }
 
-    handleLogin = async () => {
-       const user={
-            user_email:this.state.userName,
-            password:this.state.password
+    handleUserLogin = async() => {
+        const user = {
+            user_email: this.state.userName,
+            password: this.state.password
         }
         try {
-            const resp = await axios.post('http://api.ganies.com/login', user);
-            // console.log(resp);
-            if (resp.status && resp.status === 200) {
-              localStorage.setItem('auth', resp.data.auth_token);
-
+            const response = await axios.post('http://api.ganies.com/login', user);
+            console.log(response.data)
+            if (response.status === 200) {
+                localStorage.setItem('token', response.data.auth_token)
+                return this
+                    .props
+                    .history
+                    .push('/todo')
             } else {
-              console.log(resp.statusText);
+                console.log(response.error)
             }
-          } catch (err) {
+        } catch (err) {
+            this.setState({userAuthentication: 'failed to login'})
             console.log(err);
-          }
+        }
     }
 
     render() {
@@ -84,7 +90,6 @@ class Login extends React.Component {
             handlePasswordErrorMessage={this.handlePasswordErrorMessage}
             changePasswordVisibilityType={this.changePasswordVisibilityType}/>)
     }
-
 }
 
 export default Login

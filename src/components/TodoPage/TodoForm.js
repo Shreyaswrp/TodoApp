@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import TodoItem from './TodoItem'
-import  './StyleTodo.css'
+import '../../style/StyleTodo.css'
 import {confirmAlert} from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
@@ -10,7 +10,7 @@ class TodoForm extends Component {
         super()
         this.state = {
             todoList: [],
-            errorMessage: '',
+            emptyValueErrorMessage: '',
             isEditing: false,
             currentItem: {
                 text: '',
@@ -23,14 +23,14 @@ class TodoForm extends Component {
         event.preventDefault();
         const items = this.state.currentItem;
         if (items.text === '' || items.text.trim() === '') {
-            this.setState({errorMessage: "Enter a value"})
+            this.setState({emptyValueErrorMessage: "Enter a value"})
         } else {
             const newArrayList = [
                 items, ...this.state.todoList
             ]
             this.setState({
                 todoList: newArrayList,
-                errorMessage: '',
+                emptyValueErrorMessage: '',
                 currentItem: {
                     text: '',
                     key: ''
@@ -39,15 +39,14 @@ class TodoForm extends Component {
         }
     }
 
-    handleInputChange = (event) => {
+    handleTodoInputChange = (event) => {
         this.setState({
             currentItem: {
                 text: event.target.value,
                 key: Date.now()
             },
-            errorMessage: ''
+            emptyValueErrorMessage: ''
         })
-
     }
 
     handleItemDelete = (value, key) => {
@@ -81,9 +80,7 @@ class TodoForm extends Component {
                 }
             })
             this.setState({todoList: items})
-
         }
-
         this.setState({
             currentItem: {
                 text: '',
@@ -100,11 +97,20 @@ class TodoForm extends Component {
         })
     }
 
+    handleTodoLogout = () => {
+        localStorage.clear()
+        this
+            .props
+            .history
+            .push('/')
+    }
+
     render() {
         return (
             <div className='todo-container'>
                 <form className='todo-form' onSubmit={this.handleTodoSubmit} autoComplete='off'>
-                    <div className='form-heading'>
+                    <button onClick={this.handleTodoLogout} className='todo-logout-button'>Logout</button>
+                    <div className='todo-form-heading'>
                         <h2>Todo List</h2>
                     </div>
                     <div className='item-list'>
@@ -112,10 +118,10 @@ class TodoForm extends Component {
                             className="todo-input"
                             type='text'
                             value={this.state.currentItem.text}
-                            onChange={this.handleInputChange}
+                            onChange={this.handleTodoInputChange}
                             placeholder="Add Todo"/>
                         <button className='todo-add-button'>+</button>
-                        <span className='error-message'>{this.state.errorMessage}</span>
+                        <span className='emptyValue-error-message'>{this.state.emptyValueErrorMessage}</span>
                     </div>
                     <TodoItem
                         todoList={this.state.todoList}
@@ -127,5 +133,4 @@ class TodoForm extends Component {
         )
     }
 }
-
 export default TodoForm

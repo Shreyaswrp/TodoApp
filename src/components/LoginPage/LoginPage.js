@@ -1,11 +1,11 @@
 import React from 'react'
-import loginImage from './images/account.svg'
+import loginImage from '../../asset/account.svg'
 
 function LoginPage(props) {
     return (
         <div>
-            <div className='login-container'>
-                <div className="login-form-heading">
+            <div className='loginPage-container'>
+                <div className="loginPage-heading">
                     <h4>Login to your account</h4>
                 </div>
                 <div className='form-container'>
@@ -13,7 +13,7 @@ function LoginPage(props) {
                         className='login-form'
                         onSubmit={event => props.handleLoginFormSubmit(event)}
                         autoComplete="off">
-                        <div className='input-box-position'>
+                        <div className='username-input-field'>
                             <div className='userInput-box'>
                                 <input
                                     type='text'
@@ -30,7 +30,9 @@ function LoginPage(props) {
                         <div className='password-box'>
                             <input
                                 className='login-password'
-                                type={props.stateData.passwordVisibility?'password':'text'}
+                                type={props.stateData.passwordVisibility
+                                ? 'password'
+                                : 'text'}
                                 name='password'
                                 placeholder=' '
                                 value={props.stateData.password}
@@ -45,9 +47,8 @@ function LoginPage(props) {
                         </div>
                         <span className='password-error-message'>{props.stateData.passwordErrorMessage}</span>
                         <button type="submit" className='login-button'>Login</button>
-                        <div className='forgot-password-link'>Forgot password?</div>
+                        <div className='new-account-link'>Create Account</div>
                     </form>
-                    <div className='new-account-link'>Create Account</div>
                 </div>
                 <div className='image-position'>
                     <figure>
