@@ -95,7 +95,7 @@ class Loginpage extends React.Component {
           </div>
           <span className="errormessage">{this.state.passwordErrorMessage}</span>
           <button className="submit-button" type="submit">LogIn</button>
-          <a className="account-link"> Create a account</a>
+          <span className="account-link"> Create a account</span>
         </form>
         <div className="image-container">
           <img className="account-image" src={account}></img>

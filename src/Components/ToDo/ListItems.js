@@ -6,7 +6,7 @@ function ListItems(props) {
     const items = props.items;
     const listItems = items.map(item => {
         return <div key={item.key}>
-            <p>
+            <div>
                 <input type='checkbox' />
                 <input className='list-input' type="text" id={item.key} value={item.text} onChange={(e) => {
                     props.setUpdate(e.target.value, item.key)}} />
@@ -18,7 +18,7 @@ function ListItems(props) {
                         props.deleteItems(item.key)
                     }} icon="trash" />
                 </span>
-            </p>
+            </div>
         </div>
     })
     return <div>
