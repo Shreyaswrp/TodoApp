@@ -13,7 +13,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "Add_Task":
+    case "ADD_TASK":
       return {
         ...state,
         items: [
@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
         ],
       };
 
-    case "Del_Task":
+    case "DEL_TASK":
       const updatedTasks = state.items.filter(
         (result, index) => index !== action.id
       );
@@ -37,7 +37,7 @@ const reducer = (state = initialState, action) => {
         items: updatedTasks,
       };
 
-    case "Is_Updating":
+    case "IS_UPDATING":
       const updatingItems = [...state.items];
       updatingItems[action.index] = {
         ...updatingItems[action.index],
@@ -48,7 +48,7 @@ const reducer = (state = initialState, action) => {
         items: updatingItems,
       };
 
-    case "Update_Task":
+    case "UPDATE_TASK":
       const updatedItems = [...state.items];
       updatedItems[action.index] = {
         ...updatedItems[action.index],
@@ -60,13 +60,13 @@ const reducer = (state = initialState, action) => {
         items: updatedItems,
       };
 
-    case "setErrAddMsg":
+    case "SET_ERR_ADD_MSG":
       return {
         ...state,
         errAddItemMsg: action.message,
       };
 
-    case "setErrUpdateMsg":
+    case "SET_ERR_UPDATE_MSG":
       const newItems = [...state.items];
       newItems[action.index] = {
         ...newItems[action.index],
@@ -77,7 +77,7 @@ const reducer = (state = initialState, action) => {
         items: newItems,
       };
 
-    case "Check_Task":
+    case "CHECK_TASK":
       const items = [...state.items]
       items[action.index] = {...items[action.index], isChecked: !items[action.index].isChecked}
       return {

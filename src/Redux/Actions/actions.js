@@ -1,6 +1,6 @@
 export const addTask = (title) => {
   return {
-    type: "Add_Task",
+    type: "ADD_TASK",
     title,
     id: new Date().getTime(),
   };
@@ -9,14 +9,14 @@ export const addTask = (title) => {
 export const deleteTask = (id) => {
   console.log(id);
   return {
-    type: "Del_Task",
+    type: "DEL_TASK",
     id,
   };
 };
 
 export const updateTask = (title, index) => {
   return {
-    type: "Update_Task",
+    type: "UPDATE_TASK",
     title,
     index,
   };
@@ -24,28 +24,28 @@ export const updateTask = (title, index) => {
 
 export const checkTask = (index) => {
   return {
-    type: "Check_Task",
+    type: "CHECK_TASK",
     index,
   };
 };
 
 export const isUpdating = (index) => {
   return {
-    type: "Is_Updating",
+    type: "IS_UPDATING",
     index,
   };
 };
 
 export const setErrAddMsg = (message) => {
   return {
-    type: "setErrAddMsg",
+    type: "SET_ERR_ADD_MSG",
     message,
   };
 };
 
 export const setErrUpdateMsg = (message, index) => {
   return {
-    type: "setErrUpdateMsg",
+    type: "SET_ERR_UPDATE_MSG",
     message,
     index,
   };
