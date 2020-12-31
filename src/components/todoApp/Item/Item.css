@@ -1,8 +1,7 @@
 .itemContainer {
     display: flex;
-    margin: 10px auto;
+    margin: 1px auto;
     width: 90%;
-    border: 2px solid #8566aa;
     padding: 0 5px;
     height: 55px;
     align-items: center;
@@ -15,7 +14,7 @@
   .edit {
     font-size: 20px;
     padding: 0;
-    margin-right: 0;
+    margin-right: 10px;
     color: #0f0;
   }
   
