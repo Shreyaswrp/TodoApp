@@ -1,25 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTask } from "../../../Redux/Actions/addTask";
-import { setErrAddMsg } from "../../../Redux/Actions/setErrAddMsg";
+import { addTask } from "../../../Redux/Actions/actions";
+import { setErrAddMsg } from "../../../Redux/Actions/actions";
 import "./ToDoList.css";
 import Items from "../Items/Items";
 
 class TodoList extends Component {
-  state = {
-    items: [
-      {
-        id: new Date(),
-        title: "Cooking",
-        isUpdating: true,
-        isChecked: false,
-        errUpdateItemMsg: undefined,
-      },
-    ],
-    updatedItemIndex: undefined,
-    errAddItemMsg: undefined,
-  };
-
   clearErrMsg = () => {
     this.props.dispatch(setErrAddMsg(""));
   };

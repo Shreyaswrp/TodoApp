@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteTask } from "../../../Redux/Actions/deleteTask";
-import { isUpdating } from "../../../Redux/Actions/isUpdating";
-import { updateTask } from "../../../Redux/Actions/updateTask";
-import { setErrUpdateMsg } from "../../../Redux/Actions/setErrUpdateMsg";
-import { checkTask } from '../../../Redux/Actions/checkTask';
+import { deleteTask } from "../../../Redux/Actions/actions";
+import { isUpdating } from "../../../Redux/Actions/actions";
+import { updateTask } from "../../../Redux/Actions/actions";
+import { setErrUpdateMsg } from "../../../Redux/Actions/actions";
+import { checkTask } from '../../../Redux/Actions/actions';
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
