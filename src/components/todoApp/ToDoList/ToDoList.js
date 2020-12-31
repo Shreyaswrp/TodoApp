@@ -35,12 +35,6 @@ class TodoList extends Component {
     }
   };
 
-  itemCheckedHandler = (index) => {
-    const updatedItems = [...this.state.items];
-    updatedItems[index].isChecked = !this.state.items[index].isChecked;
-    this.setState({ items: updatedItems });
-  };
-
   render() {
     return (
       <div className="appContainer">
@@ -61,7 +55,7 @@ class TodoList extends Component {
         {this.props.items.length === 0 ? (
           <span id="noTaskAdded">No Task Added</span>
         ) : (
-          <Items itemCheckedHandler={this.itemCheckedHandler} />
+          <Items />
         )}
       </div>
     );
