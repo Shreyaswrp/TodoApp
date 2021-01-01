@@ -14,29 +14,34 @@ class Todo extends Component {
             .dispatch(addTask(input))
         e.target.input.value = ''
     }
-    
+
     render() {
-        return (         
-                <div className="todo-container">
+        return (
+            <div className="todo-container">
                 <form className="todo-form" autoComplete="off" onSubmit={this.onsubmitHandler}>
                     <h2 className="heading">ToDo List</h2>
                     <input className="task-input-field" placeholder="enter your task" name='input'></input>
                     <button className="addtask-button" type="submit">+</button>
+
                     <p className='error-Message'>{this.props.emptyMessage}</p>
-                    <Items ></Items>
+                    {this.props.taskList.length === 0
+                        ? <div className='empty-task-container'>
+                                
+                                <i class="fas fa-list-ul box-icon"></i>
+                                <span className='empty-task-message'>No Task to complete...!</span>
+                               
+                            </div>
+                        : <Items ></Items>}
+
                 </form>
 
-           
             </div>
         )
     }
 }
 
-const mapStateToProps=(state)=>{
-    return{
-        taskList:state.taskList,
-        emptyMessage:state.emptyMessage
-    }
+const mapStateToProps = (state) => {
+    return {taskList: state.taskList, emptyMessage: state.emptyMessage}
 }
 
 export default connect(mapStateToProps)(Todo);

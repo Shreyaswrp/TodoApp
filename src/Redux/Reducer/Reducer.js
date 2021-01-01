@@ -44,10 +44,14 @@ const reducer = (state = initialState, action) => {
                 .taskList
                 .map((todo) => {
                     if (todo.id == action.id) {
-                        console.log(todo)
-                        return todo.message = action.task
+                        return {
+                            ...todo,
+                            message: action.task,
+                            isUpdating: !todo.isUpdating
+                        }
 
                     }
+                    return todo
 
                 });
             return {
