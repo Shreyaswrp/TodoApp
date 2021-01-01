@@ -60,29 +60,13 @@ const todoReducer = (state = initialState, action) => {
                         if (item.id === action.id) {
                             return {
                                 ...item,
-                                message :action.value,
+                                message: action.value,
+                                isUpdating: !item.isUpdating
                             }
                         }
                         return item
                     })
             }
-
-        case 'SET_EDIT':
-            const setTodo = state
-                .todo
-                .map(item => {
-                    if (item.id === action.id) {
-                        return {
-                            ...item,
-                            isUpdating:!item.isUpdating
-                        };
-                    }
-                    return item
-                })
-                return {
-                    ...state,
-                    todo: setTodo
-                }
         default:
             return state
 

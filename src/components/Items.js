@@ -4,12 +4,17 @@ import {connect} from 'react-redux'
 
 const Items = props => {
     return (
-        <div>
-            {props
-                .todos
-                .map((todo, index) => (
-                    <Item key={index} currentElement={todo}></Item>
-                ))}
+        <div className='items-list'>
+            {props.todos.length === 0
+                ? <div>
+                        <h4 className="empty-todo-list-message">Todo list is empty!</h4>
+                        <i class="far fa-list-alt empty-todo-list-icon"></i>
+                    </div>
+                : props
+                    .todos
+                    .map((todo, index) => (
+                        <Item key={index} currentElement={todo}></Item>
+                    ))}
 
         </div>
     )

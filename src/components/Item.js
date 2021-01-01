@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {deleteItem, checkItem, editItem, setEdit} from '../redux/action/index'
+import {deleteItem, checkItem, editItem} from '../redux/action/index'
 import {connect} from 'react-redux'
 import {confirmAlert} from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -7,7 +7,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 function Item(props) {
 
     const [value,
-        setValue] = useState(props.currentElement.message)
+        setValue] = useState()
 
     const handleTodoDelete = id => {
         props.dispatch(deleteItem(id))
@@ -17,16 +17,12 @@ function Item(props) {
         props.dispatch(checkItem(id))
     }
 
-    const handleTodoEdit = () => {
-        props.dispatch(editItem(props.currentElement.id, value))
-    }
-
-    const handleTodoUpdate = () => {
-        props.dispatch(setEdit(props.currentElement.id))
+    const handleTodoEdit = id => {
+        props.dispatch(editItem(value, id))
     }
 
     return (
-        <div className='item-container'>
+        <div className='todo-item-container'>
             <input
                 type="checkbox"
                 checked={props.currentElement.isChecked}
@@ -35,18 +31,21 @@ function Item(props) {
             <input
                 style={props.currentElement.isChecked
                 ? {
-                    textDecoration: 'line-through'
+                    textDecoration: 'line-through',
+                    color: 'gray'
                 }
                 : null}
                 type='text'
                 className="todo-input-list"
-                value={value}
+                value={props.currentElement.isUpdating
+                ? value
+                : props.currentElement.message}
                 onChange={(event) => setValue(event.target.value)}/>
             <i
                 className="far fa-trash-alt delete-btn"
                 onClick={() => confirmAlert({
                 title: 'Confirm to delete',
-                message: `Are you sure to do this ${value}`,
+                message: `Are you sure?`,
                 buttons: [
                     {
                         label: 'Yes',
@@ -60,10 +59,10 @@ function Item(props) {
                 ]
             })}></i>
             <i
-                className="fas fa-pen edit-btn"
-                onClick={props.currentElement.isUpdating
-                ? handleTodoEdit
-                :handleTodoUpdate}></i>
+                className={props.currentElement.isUpdating
+                ? "fas fa-save edit-btn"
+                : "fas fa-pen edit-save-btn"}
+                onClick={() => handleTodoEdit(props.currentElement.id)}></i>
         </div>
     )
 }

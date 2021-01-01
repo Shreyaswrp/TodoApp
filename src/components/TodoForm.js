@@ -25,7 +25,7 @@ class TodoForm extends Component {
                     <div className='item-list'>
                         <input className="todo-input" type='text' name='input' placeholder="Add Todo"/>
                         <button className='todo-add-button'>+</button>
-                        <span className='emptyValue-error-message'>{this.props.errorMessage}</span>
+                        <span className='empty-value-error-message'>{this.props.errorMessage}</span>
                     </div>
                     <Items/>
                 </form>

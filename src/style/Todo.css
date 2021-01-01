@@ -34,6 +34,7 @@
     border-bottom: 3px solid rgb(179, 65, 179);
     margin: 0 5% 1% 10%;
 }
+
 .todo-input:focus {
     outline: none;
 }
@@ -71,28 +72,26 @@
 }
 
 .todo-list-checkbox {
-    zoom: 1;
+    zoom: 1.1;
     cursor: pointer;
 }
 
 .todo-input-list {
     margin: 5% 2%;
     border: none;
-    width: 55%;
-    font-size: 17px;
+    width: 65%;
+    font-size: 20px;
     font-family: Times, serif;
-    border-bottom: 1px solid black;
 }
 
 .todo-input-list:focus {
     outline: none;
 }
 
-
 .delete-btn,
 .edit-btn {
     border: none;
-    zoom: 1.2;
+    zoom: 1.1;
     cursor: pointer;
 }
 
@@ -102,6 +101,10 @@
 
 .delete-btn {
     margin-right: 5%;
+    color: blue;
+}
+
+.delete-btn:hover{
     color: red;
 }
 
@@ -109,9 +112,49 @@
     margin-left: 50px;
 }
 
-.emptyValue-error-message {
+.empty-value-error-message{
     color: red;
     font-size: 13px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 19px;
 }
+
+.edit-save-btn{
+  color: blue;
+  cursor: pointer;
+  zoom: 1.1;
+}
+
+.empty-todo-list-message {
+    color: rgb(104, 0, 179);
+    width: 79%;
+    margin-top: 35%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 22px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.empty-todo-list-icon{
+    margin-left: 35%;
+    margin-top: -10%;
+    zoom: 4.5;
+    color: rgba(179, 65, 179, 0.4);;
+}
+
+.todo-item-container{
+    border: 2px solid rgb(160, 112, 160);
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.empty-todo-list-icon:hover{
+    color: rgba(255, 0, 0, 0.719);
+}
+
+.items-list{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
