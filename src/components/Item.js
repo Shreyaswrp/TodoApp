@@ -38,7 +38,7 @@ function Item(props) {
                 type='text'
                 className="todo-input-list"
                 value={props.currentElement.isUpdating
-                ? value
+                ? null
                 : props.currentElement.message}
                 onChange={(event) => setValue(event.target.value)}/>
             <i
