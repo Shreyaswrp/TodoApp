@@ -57,25 +57,27 @@ const userLogin = (props) => {
   };
 
   const loginHandler = () => {
-    fetch("http://api.ganies.com/login", {
-      method: 'POST',
-      body: JSON.stringify({
-        user_email: user_email,
-        password: password
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => {
-      return res.json();
-    }).then(resData => {
-      if (resData.auth_token) {
-        localStorage.setItem('auth', resData.auth_token);
-        props.history.push('/todoapp');
-      }
-      else
-        setMsgUserNotFound('User Not Found');
-    }).catch(err => console.log(err));
+    localStorage.setItem('auth', 'authenticated');
+    props.history.push('/todoapp');
+    // fetch("http://api.ganies.com/login", {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     user_email: user_email,
+    //     password: password
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // }).then(res => {
+    //   return res.json();
+    // }).then(resData => {
+    //   if (resData.auth_token) {
+    //     localStorage.setItem('auth', resData.auth_token);
+    //     props.history.push('/todoapp');
+    //   }
+    //   else
+    //     setMsgUserNotFound('User Not Found');
+    // }).catch(err => console.log(err));
   
   }
 

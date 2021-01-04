@@ -1,8 +1,8 @@
 .itemContainer {
   display: flex;
-  margin: 10px auto;
+  margin: 8px auto;
   width: 90%;
-  border: 2px solid #8566aa;
+  
   padding: 0 5px;
   height: 55px;
   align-items: center;
