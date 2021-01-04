@@ -1,10 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteTask } from "../../../Redux/Actions/actions";
-import { isUpdating } from "../../../Redux/Actions/actions";
-import { updateTask } from "../../../Redux/Actions/actions";
-import { setErrUpdateMsg } from "../../../Redux/Actions/actions";
-import { checkTask } from '../../../Redux/Actions/actions';
+import Action from '../../../Redux/Actions/actions';
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,16 +16,16 @@ const item = (props) => {
 
   const checkTaskHandler = (index) => {
     console.log(index);
-    props.dispatch(checkTask(index));
+    props.dispatch(Action.checkTask(index));
   };
 
   const clearErrMsg = (index) => {
-    props.dispatch(setErrUpdateMsg("", index));
+    props.dispatch(Action.setErrUpdateMsg("", index));
   };
 
   const setIsUpdatingHandler = (index) => {
     console.log(index);
-    props.dispatch(isUpdating(index));
+    props.dispatch(Action.isUpdating(index));
   };
 
   const submitInputHandler = (e) => {
@@ -37,10 +33,10 @@ const item = (props) => {
     const title = e.target.item.value;
     const index = e.target.index.value;
     if (title === undefined || title.toString().trim() === "") {
-      return props.dispatch(setErrUpdateMsg("Task must not be empty", index));
+      return props.dispatch(Action.setErrUpdateMsg("Task must not be empty", index));
     }
     console.log(title, index);
-    props.dispatch(updateTask(title, index));
+    props.dispatch(Action.updateTask(title, index));
     e.target.item.value = "";
   };
 
@@ -51,7 +47,7 @@ const item = (props) => {
       buttons: [
         {
           label: "Yes",
-          onClick: () => props.dispatch(deleteTask(id)),
+          onClick: () => props.dispatch(Action.deleteTask(id)),
         },
         {
           label: "No",

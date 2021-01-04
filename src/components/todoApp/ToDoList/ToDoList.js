@@ -1,22 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTask } from "../../../Redux/Actions/actions";
-import { setErrAddMsg } from "../../../Redux/Actions/actions";
+import Action from '../../../Redux/Actions/actions';
 import "./ToDoList.css";
 import Items from "../Items/Items";
 
 class TodoList extends Component {
   clearErrMsg = () => {
-    this.props.dispatch(setErrAddMsg(""));
+    this.props.dispatch(Action.setErrAddMsg(""));
   };
 
   addItemHandler = (e) => {
     e.preventDefault();
     const newItem = e.target.item.value;
     if (newItem === undefined || newItem.toString().trim() === "") {
-      return this.props.dispatch(setErrAddMsg("Task must not be empty"));
+      return this.props.dispatch(Action.setErrAddMsg("Task must not be empty"));
     } else {
-      this.props.dispatch(addTask(newItem));
+      this.props.dispatch(Action.addTask(newItem));
       e.target.item.value = "";
     }
   };

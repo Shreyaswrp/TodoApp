@@ -1,52 +1,58 @@
-export const addTask = (title) => {
-  return {
-    type: "ADD_TASK",
-    title,
-    id: new Date().getTime(),
-  };
-};
+class Action {
 
-export const deleteTask = (id) => {
-  console.log(id);
-  return {
-    type: "DEL_TASK",
-    id,
+  static addTask = (title) => {
+    return {
+      type: "ADD_TASK",
+      title,
+      id: new Date().getTime(),
+    };
   };
-};
 
-export const updateTask = (title, index) => {
-  return {
-    type: "UPDATE_TASK",
-    title,
-    index,
+  static deleteTask = (id) => {
+    console.log(id);
+    return {
+      type: "DEL_TASK",
+      id,
+    };
   };
-};
 
-export const checkTask = (index) => {
-  return {
-    type: "CHECK_TASK",
-    index,
+  static updateTask = (title, index) => {
+    return {
+      type: "UPDATE_TASK",
+      title,
+      index,
+    };
   };
-};
 
-export const isUpdating = (index) => {
-  return {
-    type: "IS_UPDATING",
-    index,
+  static checkTask = (index) => {
+    return {
+      type: "CHECK_TASK",
+      index,
+    };
   };
-};
 
-export const setErrAddMsg = (message) => {
-  return {
-    type: "SET_ERR_ADD_MSG",
-    message,
+  static isUpdating = (index) => {
+    return {
+      type: "IS_UPDATING",
+      index,
+    };
   };
-};
 
-export const setErrUpdateMsg = (message, index) => {
-  return {
-    type: "SET_ERR_UPDATE_MSG",
-    message,
-    index,
+  static setErrAddMsg = (message) => {
+    return {
+      type: "SET_ERR_ADD_MSG",
+      message,
+    };
   };
-};
+
+  static setErrUpdateMsg = (message, index) => {
+    return {
+      type: "SET_ERR_UPDATE_MSG",
+      message,
+      index,
+    };
+  }
+}
+
+export default Action;
+
