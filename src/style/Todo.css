@@ -1,0 +1,108 @@
+.center-div {
+    min-height: 31.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 320px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.todo-container {
+    display: flex;
+}
+
+.todo-heading {
+    background-color:rgb(179, 65, 179);
+    font-size: 20px;
+    text-align: center;
+}
+
+.list-item {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.todo-input {
+    width: 60%;
+    border: none;
+    border-bottom: 3px solid rgb(179, 65, 179);
+    margin: 0 5% 1% 10%;
+}
+
+.add-button {
+    border-radius: 3.125rem;
+    border: none;
+    zoom: 2;
+    font-size: 17px;
+    background-color: rgb(168, 86, 168);
+    font-weight: 500px;
+    transform: translateX(-5%);
+    transition: all 0.2s;
+}
+
+.todo-checkbox {
+    cursor: pointer;
+}
+
+.todo-input-list {
+    margin: 5% 2%;
+    border: none;
+    width: 65%;
+    font-size: 20px;
+    font-family: Times, serif;
+}
+
+.delete-btn,
+.edit-btn {
+    border: none;
+    cursor: pointer;
+}
+
+.edit-btn {
+    color:blue;
+}
+
+.delete-btn {
+    margin-right: 5%;
+    color: blue;
+}
+
+.item-container{
+    margin-left: 50px;
+}
+
+.empty-errormessage{
+    color: red;
+    font-size: 13px;
+    margin-left: 19px;
+}
+
+.edit-save-btn{
+  color: blue;
+  cursor: pointer;
+  zoom: 1.1;
+}
+
+.empty-todo-list-message {
+    width: 79%;
+    margin-top: 35%;
+    margin-left: 50px;
+    font-size: 22px;
+}
+
+.empty-todo-list-icon{
+    margin-left: 35%;
+    margin-top: -10%;
+    zoom: 4.5;
+    color: rgba(179, 65, 179, 0.4);;
+}
+
+.items-list{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
