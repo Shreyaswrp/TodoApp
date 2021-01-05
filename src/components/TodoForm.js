@@ -1,17 +1,18 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {addItem} from '../redux/action'
+import Actions from '../redux/action'
 import Items from './Items';
 import '../style/Todo.css'
+const actions = new Actions()
 
 class TodoForm extends Component {
-
+    
     handleTodoSubmit = event => {
         event.preventDefault()
         const input = event.target.input.value;
         this
             .props
-            .dispatch(addItem(input))
+            .dispatch(actions.addItem(input))
         event.target.input.value = ''
     }
 

@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
-import {deleteItem, checkItem, editItem} from '../redux/action/index'
+import Actions from '../redux/action/index'
 import {connect} from 'react-redux'
 import {confirmAlert} from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+const actions = new Actions()
 
 function Item(props) {
 
@@ -10,15 +11,15 @@ function Item(props) {
         setValue] = useState()
 
     const handleTodoDelete = id => {
-        props.dispatch(deleteItem(id))
+        props.dispatch(actions.deleteItem(id))
     }
 
     const handleCheckBox = id => {
-        props.dispatch(checkItem(id))
+        props.dispatch(actions.checkItem(id))
     }
 
     const handleTodoEdit = id => {
-        props.dispatch(editItem(value, id))
+        props.dispatch(actions.editItem(value, id))
     }
 
     return (
