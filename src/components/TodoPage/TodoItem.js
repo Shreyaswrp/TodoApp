@@ -1,47 +1,30 @@
-import React, {Component} from "react";
+import React, {useState} from "react";
 
-export default class TodoItem extends Component {
-
-    render() {
-        const todoList = this.props.todoList;
-        const todoListItem = todoList.map((item) => {
-            return (
-                <div className="todo-list-container" key={item.key}>
-                    <input type="checkbox" className="todo-list-checkbox"/>
-                    <input
-                        className="todo-input-list"
-                        type="text"
-                        id={item.key}
-                        value={item.text}
-                        onChange={(e) => {
-                        this
-                            .props
-                            .handleItemEdit(e.target.value, item.key);
-                    }}
-                        autoComplete="off"/>
-                    <i
-                        className="far fa-trash-alt delete-btn"
-                        onClick={() => {
-                        this
-                            .props
-                            .handleItemDelete(item.text, item.key);
-                    }}></i>
-                    <i
-                        className="fas fa-pen edit-btn"
-                        type="button"
-                        onClick={() => {
-                        this
-                            .props
-                            .changeEditItemState();
-                    }}></i>
-                </div>
-            );
-        });
-
+export default function TodoItem(props) {
+  const [value , setValue]=useState()
         return (
-            <div>{this.props.todoList.length === 0
-                    ? <h3 className='emptyTodo-list-message'>Todo list is Empty!</h3>
-                    : todoListItem}</div>
-        );
-    }
+            <div className="todo-list-container">
+                <input type="checkbox" className="todo-list-checkbox"/>
+                <input
+                    className="todo-input-list"
+                    type="text"
+                    value={props.item.isEditing
+                    ? null
+                    : props.item.text}
+                    onChange={(event) => setValue(event.target.value)}
+                    autoComplete="off"/>
+                <i
+                    className="far fa-trash-alt delete-btn"
+                    onClick={() => {
+                    props
+                        .handleItemDelete(props.item.text, props.item.key);
+                }}></i>
+                <i
+                    className={props.item.isEditing
+                    ? "fas fa-save edit-btn"
+                    : "fas fa-pen edit-btn"}
+                    type="button"
+                    onClick={() => props.handleItemEdit(value, props.item.key)}></i>
+            </div>
+        )
 }

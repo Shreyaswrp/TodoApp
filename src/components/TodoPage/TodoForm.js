@@ -11,23 +11,24 @@ class TodoForm extends Component {
         this.state = {
             todoList: [],
             emptyValueErrorMessage: '',
-            isEditing: false,
             currentItem: {
                 text: '',
-                key: ''
+                key: '',
             }
         }
     }
 
     handleTodoSubmit = (event) => {
         event.preventDefault();
-        const items = this.state.currentItem;
-        if (items.text === '' || items.text.trim() === '') {
+        if (this.state.currentItem.text === '' || this.state.currentItem.text.trim() === '') {
             this.setState({emptyValueErrorMessage: "Enter a value"})
         } else {
-            const newArrayList = [
-                items, ...this.state.todoList
-            ]
+            const newArrayList = [{
+                ...this.state.currentItem,
+                key: Date.now(),
+                isEditing: false
+            } ,...this.state.todoList]
+
             this.setState({
                 todoList: newArrayList,
                 emptyValueErrorMessage: '',
@@ -42,8 +43,7 @@ class TodoForm extends Component {
     handleTodoInputChange = (event) => {
         this.setState({
             currentItem: {
-                text: event.target.value,
-                key: Date.now()
+                text: event.target.value,   
             },
             emptyValueErrorMessage: ''
         })
@@ -71,45 +71,25 @@ class TodoForm extends Component {
         });
     }
 
-    handleItemEdit = (text, key) => {
-        if (this.state.isEditing === true) {
-            const items = this.state.todoList;
-            items.forEach(item => {
-                if (item.key === key) {
-                    return item.text = text;
+    handleItemEdit = (value, key) => {
+            const newItems=this.state.todoList.map(item => {
+                if(item.key===key)
+            {
+                return{
+                    ...item,
+                    text:value,
+                    isEditing:!item.isEditing
                 }
-            })
-            this.setState({todoList: items})
-        }
-        this.setState({
-            currentItem: {
-                text: '',
-                key: ''
             }
+            return item
         })
+            this.setState({todoList: newItems})
     };
-
-    changeEditItemState = () => {
-        this.setState(preState => {
-            return {
-                isEditing: !preState.isEditing
-            }
-        })
-    }
-
-    handleTodoLogout = () => {
-        localStorage.clear()
-        this
-            .props
-            .history
-            .push('/')
-    }
 
     render() {
         return (
             <div className='todo-container'>
                 <form className='todo-form' onSubmit={this.handleTodoSubmit} autoComplete='off'>
-                    <button onClick={this.handleTodoLogout} className='todo-logout-button'>Logout</button>
                     <div className='todo-form-heading'>
                         <h2>Todo List</h2>
                     </div>
@@ -123,11 +103,14 @@ class TodoForm extends Component {
                         <button className='todo-add-button'>+</button>
                         <span className='emptyValue-error-message'>{this.state.emptyValueErrorMessage}</span>
                     </div>
+                   {this.state.todoList.length===0?<div><h4 className='emptyTodo-list-message'>Todo List is empty!</h4></div>:this.state.todoList.map(item=>
                     <TodoItem
                         todoList={this.state.todoList}
+                        key={item.key}
+                        item={item}
                         handleItemDelete={this.handleItemDelete}
-                        handleItemEdit={this.handleItemEdit}
-                        changeEditItemState={this.changeEditItemState}/>
+                        handleItemEdit={this.handleItemEdit}/>
+                        )}
                 </form>
             </div>
         )
