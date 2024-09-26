@@ -1,0 +1,3 @@
+- css naming convention not good
+- you should never give css directly to tag until it is global, you have assigned to input
+- very bad indentation 
